@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import defaultAvatar from "../assets/defaultAvaTar.png";
-import { useState } from "react";
-import Nav from "../shared/Nav";
+
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -16,7 +15,7 @@ const AdminHeader = ({ open, setOpen }: Props) => {
   };
   return (
     <div className="">
-      <div className="hidden lg:block lg:bg-[#170F21] lg:h-screen w-full text-white">
+      <div className="hidden lg:block lg:bg-[#170F21] lg:h-svh w-full text-white">
         <div className="hidden bg-[#170F21] h-full overflow-scroll overflow-y-auto overflow-x-hidden lg:flex flex-col items-center">
           <img
             src={defaultAvatar}
@@ -43,7 +42,14 @@ const AdminHeader = ({ open, setOpen }: Props) => {
             <div className="">
               <h1>Content</h1>
               <div className="">
-                <Link to={"/admin/create-course"}>Create Course</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    `${isActive ? "text-gradient2" : ""}`
+                  }
+                  to="/admin/create-course"
+                >
+                  Create Course
+                </NavLink>
               </div>
               <div className="">
                 <Link to={"/admin/courses"}>All Courses</Link>

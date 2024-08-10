@@ -7,6 +7,7 @@ import Registration from "../pages/auth/Registration";
 import Adminlayout from "../layout/Adminlayout";
 import AdminHero from "../components/admin/AdminHero";
 import Users from "../pages/admin/Users";
+import CreateCourse from "../pages/admin/course/CreateCourse";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path:"/admin/users",
         element:<Users/>
+      },
+      {
+        path:"/admin/create-course",
+        element:<CreateCourse/>
       }
     ]
   }

@@ -1,9 +1,10 @@
-import AllUsers from "../../components/admin/AllUser";
+
+import AllUsers from "../../components/admin/user/AllUser";
 
 const Users = () => {
   return (
     <div>
-      <AllUsers role={false} />
+      <AllUsers />
     </div>
   );
 };
