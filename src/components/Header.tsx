@@ -5,12 +5,14 @@ import { CiMenuFries } from "react-icons/ci";
 import logo from "../assets/ph_logo.png";
 import { useAppSelector } from "../redux/hook";
 import { RootState } from "../redux/store";
+import { CgProfile } from "react-icons/cg";
+import Profile from "../pages/Profile";
 
 const Header = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
 
   const [openSidebar, setOpeSideBar] = useState(false);
-
+  const [profile, setProfile] = useState<boolean>(false);
   const handelClose = (e: any) => {
     if (e.target.id === "screen") {
       {
@@ -18,13 +20,9 @@ const Header = () => {
       }
     }
   };
+
   return (
-    <div
-      className="w-full relative text-white"
-      style={{
-        background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)",
-      }}
-    >
+    <div className="w-full relative text-white bg-[#100829]">
       <div className="">
         <div className="p-6 flex items-center justify-between lg:px-[160px]">
           <Link to={"/"} className="flex items-center">
@@ -35,8 +33,8 @@ const Header = () => {
             <Nav isMobile={false} />
             {!user && (
               <div className="flex gap-4">
-                <Link to={'/login'}>login</Link>
-                <Link to={'/register'}>Register</Link>
+                <Link to={"/login"}>login</Link>
+                <Link to={"/register"}>Register</Link>
               </div>
             )}
             <div className="lg:hidden">
@@ -46,17 +44,26 @@ const Header = () => {
                 onClick={() => setOpeSideBar(true)}
               />
             </div>
-            <div className="hidden 800px:block">
-              {/* {user && (
+            <div className="hidden lg:block">
+              {user && (
                 <CgProfile
                   className="cursor-pointer"
                   size={20}
-                  onClick={() => router.push("/Profile")}
+                  onClick={() => setProfile(!profile)}
                 />
-              )} */}
+              )}
             </div>
           </div>
         </div>
+        {profile && (
+          <div
+            className={`absolute lg:right-[0%] bg-[#100829] top-[80px]
+      border-t border-l border-b
+      rounded-bl-xl rounded-tl-xl px-20 py-20 border-blue-500 z-40`}
+          >
+            <Profile />
+          </div>
+        )}
 
         {/* --------------- mobile sidebar -------------  */}
         {openSidebar && (

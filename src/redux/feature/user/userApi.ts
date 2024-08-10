@@ -1,0 +1,30 @@
+import { baseApi } from "../api/baseApi";
+
+export const userApi = baseApi.injectEndpoints({
+  endpoints: (builder) => ({
+    updateAvatar: builder.mutation({
+      query: (avatar) => ({
+        url: "/update-user-avatar",
+        method: "POST",
+        body: { avatar },
+        credentials: "include",
+      }),
+    }),
+    getAllUser: builder.query({
+      query: () => ({
+        url: "get-allUsers",
+        method: "GET",
+        credentials: "include",
+      }),
+    }),
+    updateUser: builder.mutation({
+      query: ({email,role}) => ({
+        url: `update-role/${email}`,
+        method: "PUT",
+        body:{email,role},
+        credentials: "include",
+      }),
+    }),
+  }),
+});
+export const { useUpdateAvatarMutation ,useGetAllUserQuery,useUpdateUserMutation} = userApi;
