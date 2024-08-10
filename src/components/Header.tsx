@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../shared/Nav";
 import { CiMenuFries } from "react-icons/ci";
-import logo from '../assets/ph_logo.png'
+import logo from "../assets/ph_logo.png";
+import { useAppSelector } from "../redux/hook";
+import { RootState } from "../redux/store";
 
+const Header = () => {
+  const user = useAppSelector((state: RootState) => state.auth.user);
 
-
-const Header= () => {
-  
-  
   const [openSidebar, setOpeSideBar] = useState(false);
 
   const handelClose = (e: any) => {
@@ -33,6 +33,12 @@ const Header= () => {
           </Link>
           <div className="lg:flex items-center gap-3">
             <Nav isMobile={false} />
+            {!user && (
+              <div className="flex gap-4">
+                <Link to={'/login'}>login</Link>
+                <Link to={'/register'}>Register</Link>
+              </div>
+            )}
             <div className="lg:hidden">
               <CiMenuFries
                 color="white"

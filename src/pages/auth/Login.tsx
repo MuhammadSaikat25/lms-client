@@ -1,14 +1,23 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import img from '../../assets/login.png'
+import { Link, useNavigate } from "react-router-dom";
+import img from "../../assets/login.png";
+import { useLoginMutation } from "../../redux/feature/auth/authApi";
+import verifyToken from "../../utils/verifyToken";
+import { useAppDispatch } from "../../redux/hook";
+import { setUser } from "../../redux/feature/auth/authSlice";
+
 const Login = () => {
-
   const [email, setEmail] = useState("minhajulsaikat008@gmail.com");
+  const navigate = useNavigate();
   const [password, setPassword] = useState("123456");
-
-
+  const [login, { isLoading }] = useLoginMutation();
+  const dispatch = useAppDispatch();
   const handelSubmit = async (e: any) => {
     e.preventDefault();
+    const res = await login({ email, password });
+    const user = await verifyToken(res.data.token || "");
+    dispatch(setUser({ user, token: res?.data?.token }));
+    navigate("/");
   };
 
   return (
@@ -37,9 +46,13 @@ const Login = () => {
             placeholder="Password"
             required
           />
-          <button className="text-[#E8AAFF] border border-blue-700 rounded  p-1 hover:bg-[#7D58EB] duration-500 font-Poppins font-semibold mb-3">
-            Login
-          </button>
+          {isLoading ? (
+            <p className="text-center">loading...</p>
+          ) : (
+            <button className="text-[#E8AAFF] border border-blue-700 rounded  p-1 hover:bg-[#7D58EB] duration-500 font-Poppins font-semibold mb-3">
+              Login
+            </button>
+          )}
         </div>
         <div className="flex items-center gap-3 justify-center">
           <h1>New user?</h1>
