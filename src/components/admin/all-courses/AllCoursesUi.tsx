@@ -6,9 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { MdDeleteForever } from "react-icons/md";
-import { MdModeEditOutline } from "react-icons/md";
-
+import { MdDeleteForever, MdModeEditOutline } from "react-icons/md";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { useGetAllCourseQuery } from "../../../redux/feature/course/courseApi";
@@ -16,14 +14,15 @@ import { FadeLoader } from "react-spinners";
 
 const AllCoursesUi = () => {
   const { data } = useGetAllCourseQuery(undefined);
-  const [course, steCourse] = React.useState([]);
+  const [courses, setCourses] = React.useState([]);
+
   React.useEffect(() => {
-    steCourse(data?.data);
+    setCourses(data?.data);
   }, [data?.data]);
 
   return (
-    <div className="w-full">
-      {course ? (
+    <div className="w-full h-screen">
+      {courses?.length > 0 ? (
         <div className="w-[100%] lg:w-[90%] mx-auto pt-14 lg:pt-0">
           <TableContainer
             sx={{
@@ -35,7 +34,7 @@ const AllCoursesUi = () => {
             component={Paper}
           >
             <Table aria-label="simple table">
-              <TableHead className="bg-[#080826] ">
+              <TableHead className="bg-[#080826]">
                 <TableRow>
                   <TableCell sx={{ color: "white" }}>Id</TableCell>
                   <TableCell sx={{ color: "white" }} align="right">
@@ -48,7 +47,7 @@ const AllCoursesUi = () => {
                     Purchased
                   </TableCell>
                   <TableCell sx={{ color: "white" }} align="right">
-                    CreatedAt
+                    Created At
                   </TableCell>
                   <TableCell sx={{ color: "white" }} align="right">
                     Edit
@@ -59,7 +58,7 @@ const AllCoursesUi = () => {
                 </TableRow>
               </TableHead>
               <TableBody className="bg-[#131237] p-1">
-                {course?.map((course: any) => (
+                {courses.map((course: any) => (
                   <TableRow
                     key={course._id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -77,7 +76,9 @@ const AllCoursesUi = () => {
                       sx={{ color: "white" }}
                       align="right"
                     >
-                      {course.name.slice(0, 15)}...
+                      {course.name.length > 15
+                        ? `${course.name.slice(0, 15)}...`
+                        : course.name}
                     </TableCell>
                     <TableCell sx={{ color: "white" }} align="right">
                       {course.ratings}

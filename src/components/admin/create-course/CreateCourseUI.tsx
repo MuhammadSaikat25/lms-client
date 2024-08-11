@@ -1,16 +1,16 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useCreateCourseMutation } from "../../../redux/feature/course/courseApi";
 import CourseOption from "./CourseOption";
 import CourseContent from "./CourseContent";
 import CourseData from "./CourseData";
 import CoursePreview from "./CoursePreview";
 import CourseInfo from "./CourseInfo";
-
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CreateCourseUI = () => {
-  
-  const [createCourse, {  error, isLoading, isSuccess }] =
+  const navigate = useNavigate();
+  const [createCourse, { error, isLoading, isSuccess }] =
     useCreateCourseMutation();
   const [active, setActive] = useState(0);
   const [courseInfo, setCourseInfo] = useState({
@@ -81,10 +81,10 @@ const CreateCourseUI = () => {
     };
     setCourseData(data);
   };
-  const handelCourseCreate = async (e: any) => {
+  const handelCourseCreate = async () => {
     if (!isLoading) {
       await createCourse(courseData);
-    //   navigate("/admin/courses");
+      navigate("admin/all-courses");
     }
   };
   useEffect(() => {
@@ -98,7 +98,7 @@ const CreateCourseUI = () => {
       }
     }
   }, [error, isLoading, isSuccess]);
-  console.log(courseData)
+
   return (
     <div className=" w-full flex justify-between h-screen ">
       <div className="w-[80%] ">
@@ -141,7 +141,7 @@ const CreateCourseUI = () => {
       </div>
       <div className="w-[10%] lg:w-[20%] mt-[100px] h-screen fixed z-[1] top-12 right-11">
         <Toaster />
-        <CourseOption active={active}  />
+        <CourseOption active={active} />
       </div>
     </div>
   );

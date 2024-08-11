@@ -6,11 +6,12 @@ import Registration from "../pages/auth/Registration";
 
 import Adminlayout from "../layout/Adminlayout";
 import AdminHero from "../components/admin/AdminHero";
-import Users from "../pages/admin/Users";
+import Users from "../pages/admin/all-users/Users";
 import CreateCourse from "../pages/admin/create-course/CreateCourse";
 import UseAdminProtected from "../hooks/UseAdminProtected";
 import AllCourses from "../pages/admin/all-courses/AllCourses";
 import EditCourse from "../pages/admin/edit-course/EditCourse";
+import ManageUser from "../pages/admin/manage-users/ManageUser";
 
 const router = createBrowserRouter([
   {
@@ -33,11 +34,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <Adminlayout />,
+    element: (
+      <UseAdminProtected>
+        <Adminlayout />
+      </UseAdminProtected>
+    ),
     children: [
       {
         path: "/admin",
-        element: <AdminHero />,
+        element: (
+          <UseAdminProtected>
+            <AdminHero />
+          </UseAdminProtected>
+        ),
       },
       {
         path: "/admin/users",
@@ -48,17 +57,37 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:"/admin/all-courses",
-        element:<AllCourses/>
+        path: "/admin/all-courses",
+        element: (
+          <UseAdminProtected>
+            <AllCourses />
+          </UseAdminProtected>
+        ),
       },
       {
         path: "/admin/create-course",
-        element: <CreateCourse />,
+        element: (
+          <UseAdminProtected>
+            <CreateCourse />
+          </UseAdminProtected>
+        ),
       },
       {
-        path:"/admin/edit-course/:id",
-        element:<EditCourse/>
-      }
+        path: "/admin/edit-course/:id",
+        element: (
+          <UseAdminProtected>
+            <EditCourse />
+          </UseAdminProtected>
+        ),
+      },
+      {
+        path: "/admin/manage-team",
+        element: (
+          <UseAdminProtected>
+            <ManageUser />
+          </UseAdminProtected>
+        ),
+      },
     ],
   },
 ]);

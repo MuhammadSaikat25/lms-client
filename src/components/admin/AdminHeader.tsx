@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import defaultAvatar from "../assets/defaultAvaTar.png";
+import defaultAvatar from "../../assets/defaultAvaTar.png"
 
 type Props = {
   open: boolean;
@@ -34,7 +34,14 @@ const AdminHeader = ({ open, setOpen }: Props) => {
             <div className="">
               <h1>Data</h1>
               <div className="flex flex-col gap-1">
-                <Link to={"/admin/users"}>Users</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    `${isActive ? "text-gradient2" : ""}`
+                  }
+                  to={"/admin/users"}
+                >
+                  Users
+                </NavLink>
                 <Link to={"/admin/lnvoice"}>Invoice</Link>
               </div>
             </div>
@@ -52,16 +59,23 @@ const AdminHeader = ({ open, setOpen }: Props) => {
                 </NavLink>
               </div>
               <div className="">
-                <NavLink  className={({ isActive }) =>
+                <NavLink
+                  className={({ isActive }) =>
                     `${isActive ? "text-gradient2" : ""}`
-                  } to={"/admin/all-courses"}>All Courses</NavLink>
+                  }
+                  to={"/admin/all-courses"}
+                >
+                  All Courses
+                </NavLink>
               </div>
             </div>
             {/* ---------- Controllers */}
             <div className="">
               <h1>Controllers</h1>
               <div className="flex flex-col gap-3">
-                <Link to={"/admin/manage-team"}>Manage Team</Link>
+                <NavLink className={({ isActive }) =>
+                    `${isActive ? "text-gradient2" : ""}`
+                  } to={"/admin/manage-team"}>Manage User</NavLink>
               </div>
             </div>
             {/* --------------- Customization ------------ */}

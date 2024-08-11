@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Nav from "../shared/Nav";
+import Nav from "./Nav";
 import { CiMenuFries } from "react-icons/ci";
 import logo from "../assets/ph_logo.png";
 import { useAppSelector } from "../redux/hook";
 import { RootState } from "../redux/store";
 import { CgProfile } from "react-icons/cg";
-import Profile from "../pages/Profile";
+import Profile from "./Profile";
 
 const Header = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
 
   const [openSidebar, setOpeSideBar] = useState(false);
   const [profile, setProfile] = useState<boolean>(false);
+
   const handelClose = (e: any) => {
     if (e.target.id === "screen") {
       {
@@ -61,7 +62,7 @@ const Header = () => {
       border-t border-l border-b
       rounded-bl-xl rounded-tl-xl px-20 py-20 border-blue-500 z-40`}
           >
-            <Profile />
+            <Profile profile={profile} setProfile={setProfile}/>
           </div>
         )}
 

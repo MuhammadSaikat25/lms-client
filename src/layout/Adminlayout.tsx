@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
-import AdminHeader from "../components/AdminHeader";
+import AdminHeader from "../components/admin/AdminHeader";
 import logo from "../assets/ph_logo.png";
 import { CiMenuFries } from "react-icons/ci";
 import { useState } from "react";

@@ -90,7 +90,7 @@ const EditCourseComponent: FC<Props> = ({ id }) => {
     };
     setCourseData(data);
   };
-  const handelCourseCreate = async (e: any) => {
+  const handelCourseCreate = async () => {
     const course = courseData;
     await updateCourse({ id: editCourseData._id, updateData: course });
   };

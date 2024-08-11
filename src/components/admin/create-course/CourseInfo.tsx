@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import UseAxiosPublic from "../../../utils/UseAxiosPublic";
 
 type Props = {
@@ -26,7 +26,7 @@ const CourseInfo: FC<Props> = ({
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (e: any) => {
+      reader.onload = () => {
         if (reader.readyState === 2) {
           setCourseInfo({ ...courseInfo, thumbnail: reader.result });
         }
