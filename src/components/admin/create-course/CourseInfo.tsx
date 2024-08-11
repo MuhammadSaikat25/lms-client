@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import UseAxiosPublic from "../../../utils/UseAxiosPublic";
 
 type Props = {
@@ -44,6 +44,7 @@ const CourseInfo: FC<Props> = ({
             "Content-Type": "multipart/form-data",
           },
         });
+
         if (postImageRes) {
           setCourseInfo({
             ...courseInfo,
@@ -69,7 +70,7 @@ const CourseInfo: FC<Props> = ({
               id="courseName"
               placeholder="Course Name"
               required
-              value={courseInfo.name}
+              value={courseInfo.name || ""}
               onChange={(e: any) =>
                 setCourseInfo({ ...courseInfo, name: e.target.value })
               }
@@ -103,7 +104,7 @@ const CourseInfo: FC<Props> = ({
                 id="coursePrice"
                 placeholder="Course Price"
                 required
-                value={courseInfo.price}
+                value={courseInfo.price || ""}
                 onChange={(e: any) =>
                   setCourseInfo({ ...courseInfo, price: e.target.value })
                 }
@@ -118,7 +119,7 @@ const CourseInfo: FC<Props> = ({
                 type="number"
                 id="courseEstimatePrice"
                 placeholder="Course Estimate Price"
-                value={courseInfo.estimatePrice}
+                value={courseInfo.estimatePrice || ""}
                 onChange={(e: any) =>
                   setCourseInfo({
                     ...courseInfo,

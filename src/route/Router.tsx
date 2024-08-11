@@ -10,6 +10,7 @@ import Users from "../pages/admin/Users";
 import CreateCourse from "../pages/admin/create-course/CreateCourse";
 import UseAdminProtected from "../hooks/UseAdminProtected";
 import AllCourses from "../pages/admin/all-courses/AllCourses";
+import EditCourse from "../pages/admin/edit-course/EditCourse";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
         path: "/admin/create-course",
         element: <CreateCourse />,
       },
+      {
+        path:"/admin/edit-course/:id",
+        element:<EditCourse/>
+      }
     ],
   },
 ]);

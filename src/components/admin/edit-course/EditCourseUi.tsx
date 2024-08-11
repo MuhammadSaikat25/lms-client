@@ -1,17 +1,28 @@
-import  { useEffect, useState } from "react";
-import { useCreateCourseMutation } from "../../../redux/feature/course/courseApi";
-import CourseOption from "./CourseOption";
-import CourseContent from "./CourseContent";
-import CourseData from "./CourseData";
-import CoursePreview from "./CoursePreview";
-import CourseInfo from "./CourseInfo";
+import { FC, useEffect, useState } from "react";
 
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import {
+  useGetAllCourseQuery,
+  useUpdateCourseMutation,
+} from "../../../redux/feature/course/courseApi";
+import CourseInfo from "../create-course/CourseInfo";
+import CourseData from "../create-course/CourseData";
+import CourseContent from "../create-course/CourseContent";
+import CoursePreview from "../create-course/CoursePreview";
+import CourseOption from "../create-course/CourseOption";
 
-const CreateCourseUI = () => {
-  
-  const [createCourse, {  error, isLoading, isSuccess }] =
-    useCreateCourseMutation();
+type Props = {
+  id: string;
+};
+const EditCourseComponent: FC<Props> = ({ id }) => {
+  const navigate = useNavigate();
+  const { data: allCourse, refetch } = useGetAllCourseQuery(undefined);
+  const [updateCourse, { isSuccess, data }] = useUpdateCourseMutation();
+  const editCourseData = allCourse?.data.find(
+    (course: any) => course._id === id
+  );
+
   const [active, setActive] = useState(0);
   const [courseInfo, setCourseInfo] = useState({
     name: "",
@@ -23,7 +34,6 @@ const CreateCourseUI = () => {
     demoUrl: "",
     thumbnail: "",
   });
-
   const [benefit, setBenefit] = useState([{ title: "" }]);
   const [prerequisites, setPrerequisites] = useState([{ title: "" }]);
   const [courseContentData, setCourseContentData] = useState([
@@ -65,7 +75,6 @@ const CreateCourseUI = () => {
         url: video.url,
       })),
     }));
-
     const data = {
       name: courseInfo.name,
       description: courseInfo.description,
@@ -74,7 +83,7 @@ const CreateCourseUI = () => {
       tags: courseInfo.tags,
       level: courseInfo.level,
       demoUrl: courseInfo.demoUrl,
-      thumbnail: courseInfo.thumbnail,
+      thumbnail: "",
       benefits,
       prerequisite,
       courseContent,
@@ -82,25 +91,37 @@ const CreateCourseUI = () => {
     setCourseData(data);
   };
   const handelCourseCreate = async (e: any) => {
-    if (!isLoading) {
-      await createCourse(courseData);
-    //   navigate("/admin/courses");
-    }
+    const course = courseData;
+    await updateCourse({ id: editCourseData._id, updateData: course });
   };
   useEffect(() => {
     if (isSuccess) {
-      toast.success("Course create Successful");
+      toast.success("Course update Successful");
+      navigate("/admin/courses");
     }
-    if (error) {
-      if ("data" in error) {
-        const err = error as any;
-        toast.error(err.data.message);
-      }
+  }, [data, isSuccess]);
+
+  useEffect(() => {
+    if (editCourseData) {
+      setCourseInfo({
+        name: editCourseData.name,
+        description: editCourseData.description,
+        price: editCourseData.price,
+        estimatePrice: editCourseData.estimatePrice,
+        tags: editCourseData.tags,
+        level: editCourseData.level,
+        demoUrl: editCourseData.demoUrl,
+        thumbnail: editCourseData.thumbnail,
+      });
+      setPrerequisites(editCourseData.prerequisite);
+      setBenefit(editCourseData.benefits);
+      setCourseContentData(editCourseData.courseContent);
     }
-  }, [error, isLoading, isSuccess]);
-  console.log(courseData)
+    refetch();
+  }, [editCourseData]);
+
   return (
-    <div className=" w-full flex justify-between h-screen ">
+    <div className=" w-full flex justify-between min-h-screen ">
       <div className="w-[80%] ">
         {active === 0 && (
           <CourseInfo
@@ -135,16 +156,16 @@ const CreateCourseUI = () => {
             setActive={setActive}
             courseData={courseData}
             handelCourseCreate={handelCourseCreate}
-            updateCourse={false}
+            updateCourse={true}
           />
         )}
       </div>
       <div className="w-[10%] lg:w-[20%] mt-[100px] h-screen fixed z-[1] top-12 right-11">
         <Toaster />
-        <CourseOption active={active}  />
+        <CourseOption active={active} />
       </div>
     </div>
   );
 };
 
-export default CreateCourseUI;
+export default EditCourseComponent;
