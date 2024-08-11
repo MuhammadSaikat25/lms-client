@@ -44,7 +44,7 @@ const Nav: FC<Props> = ({ isMobile }) => {
 
       {/* --------------------- mobile ------------------ */}
       {isMobile && (
-        <div className="800px:hidden mt-5">
+        <div className="lg:hidden mt-5">
           <div className="w-full text-center flex flex-col gap-8 py-6">
             {NavLinkData.map((item, index) => (
               <NavLink

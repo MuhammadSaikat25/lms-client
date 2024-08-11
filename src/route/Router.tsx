@@ -7,45 +7,55 @@ import Registration from "../pages/auth/Registration";
 import Adminlayout from "../layout/Adminlayout";
 import AdminHero from "../components/admin/AdminHero";
 import Users from "../pages/admin/Users";
-import CreateCourse from "../pages/admin/course/CreateCourse";
+import CreateCourse from "../pages/admin/create-course/CreateCourse";
+import UseAdminProtected from "../hooks/UseAdminProtected";
+import AllCourses from "../pages/admin/all-courses/AllCourses";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout/>,
-    children:[
+    element: <HomeLayout />,
+    children: [
       {
-        path:"/",
-        element:<Home/>
+        path: "/",
+        element: <Home />,
       },
-      
-    ]
+    ],
   },
   {
-    path:'/login',
-    element:<Login/>
+    path: "/login",
+    element: <Login />,
   },
   {
-    path:'/register',
-    element:<Registration/>
+    path: "/register",
+    element: <Registration />,
   },
   {
-    path:'/admin',
-    element:<Adminlayout/>,
-    children:[
+    path: "/admin",
+    element: <Adminlayout />,
+    children: [
       {
-        path:'/admin',
-        element:<AdminHero/>
+        path: "/admin",
+        element: <AdminHero />,
       },
       {
-        path:"/admin/users",
-        element:<Users/>
+        path: "/admin/users",
+        element: (
+          <UseAdminProtected>
+            <Users />
+          </UseAdminProtected>
+        ),
       },
       {
-        path:"/admin/create-course",
-        element:<CreateCourse/>
-      }
-    ]
-  }
+        path:"/admin/all-courses",
+        element:<AllCourses/>
+      },
+      {
+        path: "/admin/create-course",
+        element: <CreateCourse />,
+      },
+    ],
+  },
 ]);
 const Router = () => {
   return <RouterProvider router={router} />;

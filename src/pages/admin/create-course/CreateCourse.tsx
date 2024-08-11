@@ -1,4 +1,4 @@
-import CreateCourseUI from "../../../components/admin/course/CreateCourseUI";
+import CreateCourseUI from "../../../components/admin/create-course/CreateCourseUI";
 
 
 const CreateCourse = () => {

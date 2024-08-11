@@ -52,7 +52,9 @@ const AdminHeader = ({ open, setOpen }: Props) => {
                 </NavLink>
               </div>
               <div className="">
-                <Link to={"/admin/courses"}>All Courses</Link>
+                <NavLink  className={({ isActive }) =>
+                    `${isActive ? "text-gradient2" : ""}`
+                  } to={"/admin/all-courses"}>All Courses</NavLink>
               </div>
             </div>
             {/* ---------- Controllers */}
