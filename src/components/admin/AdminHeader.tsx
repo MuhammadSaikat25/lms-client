@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import defaultAvatar from "../../assets/defaultAvaTar.png"
+import defaultAvatar from "../../assets/defaultAvaTar.png";
 
 type Props = {
   open: boolean;
@@ -73,22 +73,55 @@ const AdminHeader = ({ open, setOpen }: Props) => {
             <div className="">
               <h1>Controllers</h1>
               <div className="flex flex-col gap-3">
-                <NavLink className={({ isActive }) =>
+                <NavLink
+                  className={({ isActive }) =>
                     `${isActive ? "text-gradient2" : ""}`
-                  } to={"/admin/manage-team"}>Manage User</NavLink>
+                  }
+                  to={"/admin/manage-team"}
+                >
+                  Manage User
+                </NavLink>
               </div>
             </div>
             {/* --------------- Customization ------------ */}
             <div className="flex flex-col gap-3">
               <Link to={"/admin/hero"}>Hero</Link>
-              <Link to={"/admin/faq"}>FAQ</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "text-gradient2" : ""}`
+                }
+                to={"/admin/faq"}
+              >
+                FAQ
+              </NavLink>
               <Link to={"/"}>categories</Link>
             </div>
             {/* Analytics */}
             <div className="flex flex-col gap-3">
-              <Link to={"/admin/course-analytics"}>Course-analytics</Link>
-              <Link to={"/admin/order-analytics"}>Order-analytics</Link>
-              <Link to={"/admin/user-analytics"}>User-analytics</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "text-gradient2" : ""}`
+                }
+                to={"/admin/course-analytics"}
+              >
+                Course-analytics
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "text-gradient2" : ""}`
+                }
+                to={"/admin/order-analytics"}
+              >
+                Order-analytics
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  `${isActive ? "text-gradient2" : ""}`
+                }
+                to={"/admin/user-analytics"}
+              >
+                User-analytics
+              </NavLink>
             </div>
           </div>
         </div>

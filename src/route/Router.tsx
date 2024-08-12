@@ -12,6 +12,10 @@ import UseAdminProtected from "../hooks/UseAdminProtected";
 import AllCourses from "../pages/admin/all-courses/AllCourses";
 import EditCourse from "../pages/admin/edit-course/EditCourse";
 import ManageUser from "../pages/admin/manage-users/ManageUser";
+import Faq from "../pages/admin/faq/Faq";
+import CourseAnalytics from "../pages/admin/course-analytics/CourseAnalytics";
+import OrderAnalytics from "../pages/admin/order-analytics/OrderAnalytics";
+import UserAnalytics from "../pages/admin/user-analytics/UserAnalytics";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +91,22 @@ const router = createBrowserRouter([
             <ManageUser />
           </UseAdminProtected>
         ),
+      },
+      {
+        path: "/admin/faq",
+        element: <Faq />,
+      },
+      {
+        path: "/admin/course-analytics",
+        element: <CourseAnalytics />,
+      },
+      {
+        path: "/admin/order-analytics",
+        element: <OrderAnalytics />,
+      },
+      {
+        path: "/admin/user-analytics",
+        element: <UserAnalytics />,
       },
     ],
   },
