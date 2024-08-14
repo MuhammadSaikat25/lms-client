@@ -1,5 +1,6 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import defaultAvatar from "../../assets/defaultAvaTar.png";
+import { FaUsers } from "react-icons/fa";
 
 type Props = {
   open: boolean;
@@ -13,8 +14,10 @@ const AdminHeader = ({ open, setOpen }: Props) => {
       }
     }
   };
+  const location = useLocation();
+
   return (
-    <div className="">
+    <div className="text-left">
       <div className="hidden lg:block lg:bg-[#170F21] lg:h-svh w-full text-white">
         <div className="hidden bg-[#170F21] h-full overflow-scroll overflow-y-auto overflow-x-hidden lg:flex flex-col items-center">
           <img
@@ -22,32 +25,45 @@ const AdminHeader = ({ open, setOpen }: Props) => {
             width={100}
             height={100}
             className="mx-auto"
-            alt=""
+            alt="image"
           />
-          <h1>Saikat</h1>
-          <Link to={"/"}>Home</Link>
-          <h1>Admin</h1>
 
+          <Link to={"/"}>Home</Link>
           <div className="flex flex-col gap-3">
-            <Link to={"/admin"}>Dashboard</Link>
+            <NavLink
+              className={`${
+                location.pathname === "/admin" && "text-gradient2"
+              }`}
+              to={"/admin"}
+            >
+              Dashboard
+            </NavLink>
             {/* ------------- Data ------------ */}
             <div className="">
-              <h1>Data</h1>
               <div className="flex flex-col gap-1">
                 <NavLink
                   className={({ isActive }) =>
-                    `${isActive ? "text-gradient2" : ""}`
+                    `flex items-center gap-2 ${
+                      isActive ? "text-[#FF7F3E]" : ""
+                    }`
                   }
-                  to={"/admin/users"}
+                  to="/admin/users"
                 >
-                  Users
+                  <span>
+                    <FaUsers
+                      className={`${
+                        location.pathname === "/admin/users" && "text-[#FF7F3E]"
+                      }`}
+                    />
+                  </span>
+                  <span>Users</span>
                 </NavLink>
-                <Link to={"/admin/lnvoice"}>Invoice</Link>
+
+                <Link to={"/admin/invoice"}>Invoice</Link>
               </div>
             </div>
             {/* ---------  Content ------------- */}
             <div className="">
-              <h1>Content</h1>
               <div className="">
                 <NavLink
                   className={({ isActive }) =>
@@ -71,7 +87,6 @@ const AdminHeader = ({ open, setOpen }: Props) => {
             </div>
             {/* ---------- Controllers */}
             <div className="">
-              <h1>Controllers</h1>
               <div className="flex flex-col gap-3">
                 <NavLink
                   className={({ isActive }) =>

@@ -1,0 +1,45 @@
+.animation-container {
+  display: inline-block;
+  margin: 50px;
+}
+
+.tailwind-animation {
+  font-size: 2rem;
+  display: inline-block;
+  animation: animateRotateT 7s ease-in-out infinite;
+  transform: rotate(20deg); 
+}
+
+.html-animation {
+  font-size: 2rem;
+  display: inline-block;
+  animation: animateRotateH 7s ease-in-out infinite;
+  transform: rotate(35deg); 
+}
+
+@keyframes animateRotateH {
+  0% {
+    transform: translateY(0) rotate(35deg);
+  }
+  50% {
+    transform: translateY(-50px) rotate(20deg);
+  }
+  100% {
+    transform: translateY(0) rotate(35deg);
+  }
+}
+.bg {
+  background-image: url('../../assets/bg.png');
+}
+
+@keyframes animateRotateT {
+  0% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}

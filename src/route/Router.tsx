@@ -16,6 +16,8 @@ import Faq from "../pages/admin/faq/Faq";
 import CourseAnalytics from "../pages/admin/course-analytics/CourseAnalytics";
 import OrderAnalytics from "../pages/admin/order-analytics/OrderAnalytics";
 import UserAnalytics from "../pages/admin/user-analytics/UserAnalytics";
+import Course from "../pages/course/Course";
+import CourseDetails from "../pages/course-details/CourseDetails";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/course",
+        element: <Course />,
+      },
+      {
+        path: "/course-details/:id",
+        element: <CourseDetails />,
       },
     ],
   },
@@ -36,6 +46,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Registration />,
   },
+
   {
     path: "/admin",
     element: (

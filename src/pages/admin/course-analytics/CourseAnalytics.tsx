@@ -3,7 +3,7 @@ import CourseAnalyticsUI from "../../../components/admin/course-analytics/Course
 const CourseAnalytics = () => {
   return (
     <div className="h-screen">
-      <CourseAnalyticsUI />
+      <CourseAnalyticsUI/>
     </div>
   );
 };

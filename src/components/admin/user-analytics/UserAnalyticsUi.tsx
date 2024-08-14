@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useGetUserAnalyticsQuery } from "../../../redux/feature/analytics/analyticsApi";
+import { FadeLoader } from "react-spinners";
 
 const UserAnalyticsComponent = () => {
   const [analytics, setAnalytics] = useState([]);
@@ -30,26 +31,32 @@ const UserAnalyticsComponent = () => {
 
   return (
     <div className="pt-20 " style={{ width: "80%", height: "70%" }}>
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          width={500}
-          height={300}
-          data={newData}
-          margin={{
-            top: 20,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="order" stackId="a" fill="#82ca9d" />
-        </BarChart>
-      </ResponsiveContainer>
+      {userAnalytics ? (
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            width={500}
+            height={300}
+            data={newData}
+            margin={{
+              top: 20,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="order" stackId="a" fill="#82ca9d" />
+          </BarChart>
+        </ResponsiveContainer>
+      ) : (
+        <div className="flex items-center justify-center h-screen">
+          <FadeLoader color="white" />
+        </div>
+      )}
     </div>
   );
 };

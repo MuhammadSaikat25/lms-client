@@ -15,7 +15,10 @@ import {
 import { useGetOrderAnalyticsQuery } from "../../../redux/feature/analytics/analyticsApi";
 import { FadeLoader } from "react-spinners";
 
-const OrderAnalyticsComponent = () => {
+type Props = {
+  adminHero?: boolean;
+};
+const OrderAnalyticsUi = ({ adminHero }: Props) => {
   const [analytics, setAnalytics] = useState([]);
   const { data: orderAnalytics } = useGetOrderAnalyticsQuery(undefined);
 
@@ -33,7 +36,10 @@ const OrderAnalyticsComponent = () => {
   });
 
   return (
-    <div className="pt-20 " style={{ width: "80%", height: "70%" }}>
+    <div
+      className={`${adminHero ? "" : "pt-20"}`}
+      style={{ width: "80%", height: "70%" }}
+    >
       {orderAnalytics ? (
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
@@ -53,9 +59,7 @@ const OrderAnalyticsComponent = () => {
               label={{ value: "", position: "insideBottomRight", offset: 0 }}
               scale="band"
             />
-            <YAxis
-              label={{ value: "Index", angle: -90, position: "insideLeft" }}
-            />
+            <YAxis label={{ value: "", angle: -90, position: "insideLeft" }} />
             <Tooltip />
             <Legend />
             <Area
@@ -70,11 +74,11 @@ const OrderAnalyticsComponent = () => {
         </ResponsiveContainer>
       ) : (
         <div className="flex items-center justify-center h-screen">
-          <FadeLoader color="white" />
+          {!adminHero && <FadeLoader color="white" />}
         </div>
       )}
     </div>
   );
 };
 
-export default OrderAnalyticsComponent;
+export default OrderAnalyticsUi;

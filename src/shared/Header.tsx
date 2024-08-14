@@ -10,7 +10,7 @@ import Profile from "./Profile";
 
 const Header = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
-
+  const webName="<Coding/> Hero"
   const [openSidebar, setOpeSideBar] = useState(false);
   const [profile, setProfile] = useState<boolean>(false);
 
@@ -23,12 +23,12 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full relative text-white bg-[#100829]">
+    <div className="w-full relative text-white bg-[#100829] border-b border-[#0A73DB] border-opacity-15">
       <div className="">
         <div className="p-6 flex items-center justify-between lg:px-[160px]">
           <Link to={"/"} className="flex items-center">
             <img src={logo} width={50} height={50} alt="image" />
-            <h1>Coding Hero</h1>
+            <h1 className="webName">{webName}</h1>
           </Link>
           <div className="lg:flex items-center gap-3">
             <Nav isMobile={false} />

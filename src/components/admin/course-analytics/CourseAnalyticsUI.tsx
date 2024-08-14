@@ -13,8 +13,10 @@ import {
 
 import { useGetCourseAnalyticsQuery } from "../../../redux/feature/analytics/analyticsApi";
 import { FadeLoader } from "react-spinners";
-
-const CourseAnalyticsComponent = () => {
+type Props = {
+  adminHero?: boolean;
+};
+const CourseAnalyticsUI = ({ adminHero }: Props) => {
   const [analytics, setAnalytics] = useState([]);
   const { data: courseAnalytics } = useGetCourseAnalyticsQuery(undefined);
 
@@ -32,7 +34,7 @@ const CourseAnalyticsComponent = () => {
   });
 
   return (
-    <div className="pt-20" style={{ width: "80%", height: "70%" }}>
+    <div className={`${adminHero?"":"pt-20"}`} style={{ width: "80%", height: "70%" }}>
       {courseAnalytics ? (
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
@@ -57,11 +59,11 @@ const CourseAnalyticsComponent = () => {
         </ResponsiveContainer>
       ) : (
         <div className="flex items-center justify-center h-screen">
-          <FadeLoader color="white" />
+          {!adminHero && <FadeLoader color="white" />}
         </div>
       )}
     </div>
   );
 };
 
-export default CourseAnalyticsComponent;
+export default CourseAnalyticsUI;
