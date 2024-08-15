@@ -9,6 +9,8 @@ import CoursePlayer from "./CoursePlayer";
 import CourseSpecialty from "./CourseSpecialty";
 import CourseWork from "./CourseWork";
 import CourseInfo from "./CourseInfo";
+import CourseEnroll from "./course-payment/CourseEnroll";
+
 
 const CourseDetailsUi = () => {
   const { id } = useParams();
@@ -51,7 +53,8 @@ const CourseDetailsUi = () => {
       <div className="w-full lg:w-[70%] h-[300px] mx-auto px-3">
         <CoursePlayer id={id!} />
       </div>
-      <CourseInfo/>
+      <CourseEnroll id={id!}/>
+      <CourseInfo />
       {/* ------------------  Course Curriculum------------ */}
       <CourseCurriculum id={id} />
       <CourseSpecialty />
