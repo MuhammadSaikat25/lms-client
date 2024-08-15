@@ -55,7 +55,7 @@ const CourseEnroll = ({ id }: Props) => {
       <Toaster />
       <div className="">
         {isCoursePurchased ? (
-          <h1 className="bg-blue-600 px-10 rounded-2xl text-center cursor-pointer hover:bg-pink-950 duration-500 lg:w-[40%] mx-auto">
+          <h1 onClick={()=>navigate(`/course-access/${course._id}`)} className="bg-blue-600 px-10 rounded-2xl text-center cursor-pointer hover:bg-pink-950 duration-500 lg:w-[40%] mx-auto">
             Access course
           </h1>
         ) : (

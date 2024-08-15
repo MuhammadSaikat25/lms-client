@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 
 type Props = {
   isMobile: boolean;
+  profile?: boolean;
+  setProfile?: (profile: boolean) => void;
 };
 
 type NavLinkType = {
@@ -17,7 +19,7 @@ const NavLinkData: NavLinkType[] = [
   { name: "Police", path: "/police" },
 ];
 
-const Nav: FC<Props> = ({ isMobile }) => {
+const Nav: FC<Props> = ({ isMobile, setProfile }) => {
   return (
     <>
       <div className="hidden lg:block text-white ">
@@ -25,6 +27,7 @@ const Nav: FC<Props> = ({ isMobile }) => {
           {NavLinkData.map((item, index) => (
             <div key={index}>
               <NavLink
+                onClick={() => setProfile && setProfile(false)}
                 to={item.path}
                 className={({ isActive }) =>
                   `px-4 py-2 ${isActive ? "text-red-500" : ""}`

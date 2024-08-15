@@ -19,6 +19,8 @@ import UserAnalytics from "../pages/admin/user-analytics/UserAnalytics";
 import Course from "../pages/course/Course";
 import CourseDetails from "../pages/course-details/CourseDetails";
 import MyClass from "../pages/my-class/MyClass";
+import UserProtected from "../hooks/UserProtected";
+import CourseAccess from "../pages/course-access/CourseAccess";
 
 const router = createBrowserRouter([
   {
@@ -38,9 +40,21 @@ const router = createBrowserRouter([
         element: <CourseDetails />,
       },
       {
-        path:"/my-class",
-        element:<MyClass/>
-      }
+        path: "/my-class",
+        element: (
+          <UserProtected>
+            <MyClass />
+          </UserProtected>
+        ),
+      },
+      {
+        path: "/course-access/:id",
+        element: (
+          <UserProtected>
+            <CourseAccess />
+          </UserProtected>
+        ),
+      },
     ],
   },
   {

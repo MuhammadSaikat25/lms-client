@@ -31,9 +31,9 @@ const Header = () => {
             <h1 className="webName">{webName}</h1>
           </Link>
           <div className="lg:flex items-center gap-3">
-            <Nav isMobile={false} />
+            <Nav profile={profile} setProfile={setProfile} isMobile={false} />
             {user ? (
-              <NavLink to={"/my-class"}>My Class</NavLink>
+              <NavLink onClick={()=>setProfile(false)} className={"hidden lg:block"} to={"/my-class"}>My Class</NavLink>
             ) : (
               <div className="flex gap-4">
                 <Link to={"/login"}>login</Link>
