@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
 
-
 type Props = {
   isMobile: boolean;
 };
@@ -15,14 +14,10 @@ const NavLinkData: NavLinkType[] = [
   { name: "Home", path: "/" },
   { name: "Course", path: "/course" },
   { name: "About", path: "/about" },
-  { name: "FAQ", path: "/FAQ" },
   { name: "Police", path: "/police" },
-  
 ];
 
 const Nav: FC<Props> = ({ isMobile }) => {
-  
-  
   return (
     <>
       <div className="hidden lg:block text-white ">

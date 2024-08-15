@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Nav from "./Nav";
 import { CiMenuFries } from "react-icons/ci";
 import logo from "../assets/ph_logo.png";
@@ -10,7 +10,7 @@ import Profile from "./Profile";
 
 const Header = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
-  const webName="<Coding/> Hero"
+  const webName = "<Coding/> Hero";
   const [openSidebar, setOpeSideBar] = useState(false);
   const [profile, setProfile] = useState<boolean>(false);
 
@@ -32,7 +32,9 @@ const Header = () => {
           </Link>
           <div className="lg:flex items-center gap-3">
             <Nav isMobile={false} />
-            {!user && (
+            {user ? (
+              <NavLink to={"/my-class"}>My Class</NavLink>
+            ) : (
               <div className="flex gap-4">
                 <Link to={"/login"}>login</Link>
                 <Link to={"/register"}>Register</Link>
@@ -62,7 +64,7 @@ const Header = () => {
       border-t border-l border-b
       rounded-bl-xl rounded-tl-xl px-20 py-20 border-blue-500 z-40`}
           >
-            <Profile profile={profile} setProfile={setProfile}/>
+            <Profile profile={profile} setProfile={setProfile} />
           </div>
         )}
 

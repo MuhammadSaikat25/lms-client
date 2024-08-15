@@ -18,6 +18,7 @@ import OrderAnalytics from "../pages/admin/order-analytics/OrderAnalytics";
 import UserAnalytics from "../pages/admin/user-analytics/UserAnalytics";
 import Course from "../pages/course/Course";
 import CourseDetails from "../pages/course-details/CourseDetails";
+import MyClass from "../pages/my-class/MyClass";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: "/course-details/:id",
         element: <CourseDetails />,
       },
+      {
+        path:"/my-class",
+        element:<MyClass/>
+      }
     ],
   },
   {

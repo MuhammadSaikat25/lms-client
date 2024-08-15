@@ -4,7 +4,7 @@ import Footer from "../shared/Footer";
 
 const HomeLayout = () => {
   return (
-    <div className="flex flex-col h-screen justify-between bg-[#080826]">
+    <div className="flex flex-col h-svh justify-between bg-[#080826]">
       <div className="">
         <Header />
         <Outlet />
