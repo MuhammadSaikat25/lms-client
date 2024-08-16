@@ -7,7 +7,7 @@ import { useAppSelector } from "../redux/hook";
 import { RootState } from "../redux/store";
 import { CgProfile } from "react-icons/cg";
 import Profile from "./Profile";
-
+import avatar from "../assets/avatarD.jpg";
 const Header = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
   const webName = "<Coding/> Hero";
@@ -33,9 +33,15 @@ const Header = () => {
           <div className="lg:flex items-center gap-3">
             <Nav profile={profile} setProfile={setProfile} isMobile={false} />
             {user ? (
-              <NavLink onClick={()=>setProfile(false)} className={"hidden lg:block"} to={"/my-class"}>My Class</NavLink>
+              <NavLink
+                onClick={() => setProfile(false)}
+                className={"hidden lg:block"}
+                to={"/my-class"}
+              >
+                My Class
+              </NavLink>
             ) : (
-              <div className="flex gap-4">
+              <div className="lg:flex gap-4 hidden">
                 <Link to={"/login"}>login</Link>
                 <Link to={"/register"}>Register</Link>
               </div>
@@ -49,9 +55,10 @@ const Header = () => {
             </div>
             <div className="hidden lg:block">
               {user && (
-                <CgProfile
-                  className="cursor-pointer"
-                  size={20}
+                <img
+                  src={avatar}
+                  alt="image"
+                  className="cursor-pointer w-[25px] h-[25px] rounded-full object-cover"
                   onClick={() => setProfile(!profile)}
                 />
               )}
@@ -60,7 +67,7 @@ const Header = () => {
         </div>
         {profile && (
           <div
-            className={`absolute lg:right-[0%] bg-[#100829] top-[80px]
+            className={`hidden lg:block absolute lg:right-[0%] bg-[#100829] top-[80px]
       border-t border-l border-b
       rounded-bl-xl rounded-tl-xl px-20 py-20 border-blue-500 z-40`}
           >
@@ -72,11 +79,29 @@ const Header = () => {
         {openSidebar && (
           <div
             onClick={handelClose}
-            className="fixed w-full h-screen top-0 z-[99999] 800px:hidden"
+            className="fixed w-full h-screen top-0 z-[99999] lg:hidden"
             id="screen"
           >
             <div className="w-[50%] fixed z-[999999999] h-screen bg-[#2E2960]  top-0 right-0">
               <Nav isMobile={true} />
+              {user ? (
+                <div className="">
+                  <NavLink
+                    onClick={() => setProfile(false)}
+                    className={
+                      "flex flex-col gap-3 justify-center w-full items-center"
+                    }
+                    to={"/my-class"}
+                  >
+                    My Class
+                  </NavLink>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-3 justify-center w-full items-center">
+                  <Link to={"/login"}>login</Link>
+                  <Link to={"/register"}>Register</Link>
+                </div>
+              )}
             </div>
           </div>
         )}

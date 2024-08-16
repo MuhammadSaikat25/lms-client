@@ -8,7 +8,7 @@ type Props = {
 const CourseCard = ({ allCourse }: Props) => {
   return (
     <div>
-      <div className="grid grid-cols-4 gap-10 w-fit mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 w-fit mx-auto">
         {allCourse?.map((course: any, i: number) => (
           <Link to={`/course-details/${course._id}`}
             key={i}

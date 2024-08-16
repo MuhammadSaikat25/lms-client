@@ -29,7 +29,7 @@ const MyEnrollCourses = ({ enrollCourses }: Props) => {
                 <h1 className="webName">{wName}</h1>
                 <button
                   className="bg-purple-700 px-2 rounded-3xl text-[13px]"
-                  onClick={() => navigate(`/course-access/${course._id}`, { replace: true })}
+                  onClick={() => navigate(`/course-access/${course._id}`)}
                 >
                   Continue Course
                 </button>

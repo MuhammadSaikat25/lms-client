@@ -21,6 +21,7 @@ import CourseDetails from "../pages/course-details/CourseDetails";
 import MyClass from "../pages/my-class/MyClass";
 import UserProtected from "../hooks/UserProtected";
 import CourseAccess from "../pages/course-access/CourseAccess";
+import EditProfile from "../pages/edit-profile.tsx/EditProfile";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,14 @@ const router = createBrowserRouter([
         element: (
           <UserProtected>
             <CourseAccess />
+          </UserProtected>
+        ),
+      },
+      {
+        path: "/edit-profile/:email",
+        element: (
+          <UserProtected>
+            <EditProfile />
           </UserProtected>
         ),
       },

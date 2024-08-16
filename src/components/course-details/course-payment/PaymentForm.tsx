@@ -11,13 +11,14 @@ import { useCrateOrderMutation } from "../../../redux/feature/order/orderApi";
 import { useAppSelector } from "../../../redux/hook";
 import { RootState } from "../../../redux/store";
 import toast, { Toaster } from 'react-hot-toast'
+import { useNavigate } from "react-router-dom";
 type Props = {
   course: any;
 };
 
 const PaymentForm = ({ course }: Props) => {
   const user = useAppSelector((state: RootState) => state.auth.user);
-
+  const navigate=useNavigate()
   const stripe = useStripe();
   const elements = useElements();
   const { refetch } = useGetAllUserQuery(undefined);
@@ -25,7 +26,7 @@ const PaymentForm = ({ course }: Props) => {
   const [crateOrder, { data: orderData, error }] = useCrateOrderMutation();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: any) => { 
     e.preventDefault();
     if (!stripe || !elements) {
       return;
@@ -42,6 +43,7 @@ const PaymentForm = ({ course }: Props) => {
     } else if (paymentIntent && paymentIntent.status === "succeeded" && user) {
       setIsLoading(false);
       toast.success("Course Purchased successful")
+      navigate('/my-class')
       crateOrder({
         courseId: course.data._id,
         paymentInfo: paymentIntent,

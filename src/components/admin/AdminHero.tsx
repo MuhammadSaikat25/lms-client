@@ -50,7 +50,7 @@ const DashboardHeroComponent = () => {
         <CourseAnalyticsUI adminHero={true} />
         <OrderAnalyticsUi adminHero={true}/>
       </div>
-      <div className="relative z-10 mt-[100px] mx-auto w-fit md:pt-6 lg:mt-0 lg:pt-20">
+      <div className="relative z-10 mt-[100px] mx-auto w-fit md:pt-6 lg:mt-0 lg:pt-20 lg:pr-10 pt-3">
         {/* user info */}
         <div className="bg-[#170F21] w-[250px] lg:w-[300px] p-2 lg:p-5 rounded">
           <div className="flex items-center gap-x-24 gap-y-7">

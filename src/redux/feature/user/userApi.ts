@@ -19,11 +19,21 @@ export const userApi = baseApi.injectEndpoints({
     }),
     updateUser: builder.mutation({
       query: ({ email, role }) => {
-        console.log(email,role,1)
+        console.log(email, role, 1);
         return {
           url: `update-role/${email}`,
           method: "PUT",
           body: { email, role },
+          credentials: "include",
+        };
+      },
+    }),
+    updateUserData: builder.mutation({
+      query: (playLoad) => {
+        return {
+          url: `update-user/${playLoad.email}`,
+          method: "PUT",
+          body: playLoad,
           credentials: "include",
         };
       },
@@ -34,4 +44,5 @@ export const {
   useUpdateAvatarMutation,
   useGetAllUserQuery,
   useUpdateUserMutation,
+  useUpdateUserDataMutation,
 } = userApi;

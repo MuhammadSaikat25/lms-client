@@ -46,7 +46,7 @@ const AccessCourseVideoList: FC<Props> = ({
   };
 
   return (
-    <div className="bg-[#201236] h-fit mt-2 mb-3 p-2">
+    <div className="bg-[#201236] h-fit mt-2 mb-3 p-2 rounded-md">
       {content && (
         <div className="">
           {content?.map((video, moduleIndex: number) => (
@@ -63,13 +63,14 @@ const AccessCourseVideoList: FC<Props> = ({
                       </div>
                     ) : (
                       <div className="flex items-center gap-4">
-                        <h1 className="my-2">M{moduleIndex+1}: {video.module}</h1>
+                        <h1 className="my-2">
+                          M{moduleIndex + 1}: {video.module}
+                        </h1>
                         <span>+</span>
                       </div>
                     )}
                   </span>
                 </div>
-                {/* <h1>{video.videos.length} videos</h1> */}
               </div>
               {visibleModuleIndex === moduleIndex && (
                 <div className="mt-1 mb-1">
