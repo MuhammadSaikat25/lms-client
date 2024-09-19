@@ -3,7 +3,7 @@ import CreateCourseUI from "../../../components/admin/create-course/CreateCourse
 
 const CreateCourse = () => {
     return (
-        <div>
+        <div className="">
            <CreateCourseUI/>
         </div>
     );

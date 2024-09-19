@@ -13,29 +13,28 @@ import { useGetAllCourseQuery } from "../../../redux/feature/course/courseApi";
 import { FadeLoader } from "react-spinners";
 
 const AllCoursesUi = () => {
-  const { data,error } = useGetAllCourseQuery(undefined);
+  const { data } = useGetAllCourseQuery(undefined);
   const [courses, setCourses] = React.useState([]);
-  console.log(data)
-  console.log(error)
+
   React.useEffect(() => {
     setCourses(data?.data);
   }, [data?.data]);
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen p-2">
       {courses?.length > 0 ? (
-        <div className="w-[100%] lg:w-[90%] mx-auto pt-14 lg:pt-0">
+        <div className="w-[100%] lg:w-[90%] mx-auto pt-14 lg:pt-0 h-[100%]">
           <TableContainer
             sx={{
               width: "100%",
               margin: "auto",
-              height: "500px",
+              height: "100%",
               background: "#080826",
             }}
             component={Paper}
           >
             <Table aria-label="simple table">
-              <TableHead className="bg-[#080826]">
+              <TableHead className="bg-[#373781]">
                 <TableRow>
                   <TableCell sx={{ color: "white" }}>Id</TableCell>
                   <TableCell sx={{ color: "white" }} align="right">

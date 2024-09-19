@@ -10,7 +10,7 @@ type Props = {
   active: number;
   setActive: (active: number) => void;
 };
-  
+
 const CourseData: FC<Props> = ({
   active,
   benefit,
@@ -24,15 +24,24 @@ const CourseData: FC<Props> = ({
     updateBenefits[i].title = title;
     setBenefit(updateBenefits);
   };
+
   const handelPrerequisites = (i: number, title: string) => {
     const updatePrerequisites = [...prerequisite];
     updatePrerequisites[i].title = title;
     setPrerequisites(updatePrerequisites);
   };
-  const deleteInput = (i: number) => {
+
+  const deletePrerequisite = (i: number) => {
     if (prerequisite.length > 1) {
       const filterInput = prerequisite.filter((_, index) => index !== i);
       setPrerequisites(filterInput);
+    }
+  };
+
+  const deleteBenefit = (i: number) => {
+    if (benefit.length > 1) {
+      const filterBenefit = benefit.filter((_, index) => index !== i);
+      setBenefit(filterBenefit);
     }
   };
 
@@ -43,26 +52,34 @@ const CourseData: FC<Props> = ({
         <div className="flex flex-col gap-2">
           <label htmlFor=""> Benefits of this course</label>
           {benefit.map((benefit: any, i: number) => (
-            <input
-              className="bg-[#131237] rounded p-1"
-              type="text"
-              key={i}
-              required
-              name="Benefit"
-              placeholder="Benefits of This course"
-              value={benefit.title}
-              onChange={(e) => handelBenefits(i, e.target.value)}
-            />
+            <div key={i} className="w-full flex items-center gap-2 relative">
+              <input
+                className="bg-[#131237] rounded p-1 w-full"
+                type="text"
+                required
+                name="Benefit"
+                placeholder="Benefits of This course"
+                value={benefit.title}
+                onChange={(e) => handelBenefits(i, e.target.value)}
+              />
+              {i > 0 && (
+                <CgClose
+                  className="cursor-pointer absolute top-[7px] right-1"
+                  onClick={() => deleteBenefit(i)}
+                />
+              )}
+            </div>
           ))}
           <IoAddCircle
             className="cursor-pointer"
             onClick={() => setBenefit([...benefit, { title: "" }])}
           />
         </div>
+
         <div className="flex flex-col gap-2 mt-2">
           <label htmlFor="email"> Prerequisites of this course</label>
-          {prerequisite.map((prerequisite: any, i: number) => (
-            <div key={i} className="w-full flex items-center gap-2">
+          {prerequisite.map((prerequisite: any, pi: number) => (
+            <div key={pi} className="w-full flex items-center gap-2 relative">
               <input
                 className="bg-[#131237] rounded p-1 w-full"
                 type="text"
@@ -70,19 +87,24 @@ const CourseData: FC<Props> = ({
                 name="prerequisite"
                 placeholder="You need to know JS"
                 value={prerequisite.title}
-                onChange={(e) => handelPrerequisites(i, e.target.value)}
+                onChange={(e) => handelPrerequisites(pi, e.target.value)}
               />
-              <CgClose
-                className="cursor-pointer"
-                onClick={() => deleteInput(i)}
-              />
+              {pi > 0 && (
+                <CgClose
+                  className="cursor-pointer absolute top-[7px] right-1"
+                  onClick={() => deletePrerequisite(pi)}
+                />
+              )}
             </div>
           ))}
           <IoAddCircle
             className="cursor-pointer"
-            onClick={() => setPrerequisites([...prerequisite, { title: "" }])}
+            onClick={() =>
+              setPrerequisites([...prerequisite, { title: "" }])
+            }
           />
         </div>
+
         <div className="flex items-center gap-2 justify-between mt-3">
           <div
             onClick={() => setActive(active - 1)}

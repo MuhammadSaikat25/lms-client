@@ -21,6 +21,7 @@ const CoursePreview: FC<Props> = ({
   const createCourse = () => {
     handelCourseCreate();
   };
+  // console.log(courseData)
   return (
     <div className="text-white">
       <CoursePlayer
@@ -32,18 +33,17 @@ const CoursePreview: FC<Props> = ({
         demoVideoError={demoVideoError}
       />
       <div className="w-[67%] mx-auto">
-        <h1>Buy</h1>
-        <div className="">
+        <div className="flex items-center justify-between my-2">
           <div
             className=""
             onClick={() => {
               setActive(active - 1);
             }}
           >
-            pre
+            Pre
           </div>
-          <div onClick={() => createCourse()} className="">
-            {updateCourse ? <p>update</p> : <p>create course</p>}
+          <div onClick={() => createCourse()} className="cursor-pointer">
+            {updateCourse ? <p>Update</p> : <p>Create course</p>}
           </div>
         </div>
       </div>

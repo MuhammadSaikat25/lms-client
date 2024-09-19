@@ -43,27 +43,28 @@ const ManageUserUi = () => {
     if (updateUserEmail && updateRole) {
       await updateUser({ email: updateUserEmail, role: updateRole });
       setModal(false);
-      toast.success(`updated ${updateUserEmail} in ${updateRole} `)
+      toast.success(`updated ${updateUserEmail} in ${updateRole} `);
     }
     refetch();
   };
 
   return (
-    <div>
+    <div className="pt-[70px] lg:pt-0">
       <Toaster />
-      <div className="relative">
+      <div className="relative p-3">
         {user ? (
-          <div className="lg:w-[80%] mx-auto ">
+          <div className="w-[100%] lg:w-[90%] mx-auto pt-14 lg:pt-0 h-[100%]">
             <TableContainer
               sx={{
-                width: "fit-content",
+                width: "100%",
                 margin: "auto",
-                height: "fit-content",
+                height: "100%",
+                background: "#080826",
               }}
               component={Paper}
             >
               <Table aria-label="simple table">
-                <TableHead className="bg-[#080826]">
+                <TableHead className="bg-[#7c7c9f]">
                   <TableRow>
                     <TableCell sx={{ color: "white" }}>Id</TableCell>
                     <TableCell sx={{ color: "white" }} align="right">

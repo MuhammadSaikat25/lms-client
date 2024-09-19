@@ -83,8 +83,13 @@ const CreateCourseUI = () => {
   };
   const handelCourseCreate = async () => {
     if (!isLoading) {
-      await createCourse(courseData);
-      navigate("admin/all-courses");
+      const res = await createCourse(courseData);
+      if (res.data) {
+        toast.success("Course Create Successful");
+        setTimeout(() => {
+          navigate("/admin/all-courses");
+        }, 200);
+      }
     }
   };
   useEffect(() => {

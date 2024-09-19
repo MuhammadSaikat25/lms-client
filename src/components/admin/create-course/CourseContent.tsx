@@ -100,9 +100,20 @@ const CourseContent: FC<Props> = ({
     setActive(active + 1);
     handelCourseSubmit();
   };
+  const handelDeleteModule = (index: number) => {
+    if (courseContentData.length === 1) {
+      toast.error("At least one module is required", {
+        duration: 1500,
+      });
+      return;
+    }
 
+    const updatedModules = [...courseContentData];
+    updatedModules.splice(index, 1);
+    setCourseContentData(updatedModules);
+  };
   return (
-    <div className=" w-[80%] mx-auto text-white">
+    <div className=" w-[80%] mx-auto text-white h-screen overflow-hidden overflow-y-scroll custom-scroll">
       <h1 className="text-center mt-3 lg:hidden">Course Content</h1>
       <Toaster />
 
@@ -119,16 +130,20 @@ const CourseContent: FC<Props> = ({
               <div className="flex flex-col">
                 <div className="flex items-center justify-between">
                   <label htmlFor="">Module {i + 1}</label>
-                  <h1 onClick={() => handleCollapseToggle(i)}>
-                    {collapsedModules[i] ? (
-                      <FaLongArrowAltDown />
-                    ) : (
-                      <FaLongArrowAltUp />
-                    )}
-                  </h1>
+                  <div className="flex items-center gap-x-2">
+                    <h1 onClick={() => handleCollapseToggle(i)}>
+                      {collapsedModules[i] ? (
+                        <FaLongArrowAltDown />
+                      ) : (
+                        <FaLongArrowAltUp />
+                      )}
+                    </h1>
+                    <span onClick={() => handelDeleteModule(i)}>X</span>
+                  </div>
                 </div>
                 {!collapsedModules[i] && (
                   <input
+                    required
                     type="text"
                     placeholder="Module"
                     className="bg-[#131237] p-1 rounded"
@@ -177,6 +192,7 @@ const CourseContent: FC<Props> = ({
                           </span>
                         </div>
                         <input
+                          required
                           type="text"
                           className="bg-[#131237] p-1 rounded"
                           value={link.title}
@@ -189,6 +205,7 @@ const CourseContent: FC<Props> = ({
                           }}
                         />
                         <input
+                          required
                           type="text"
                           className="bg-[#131237] p-1 rounded"
                           value={link.url}
@@ -265,6 +282,7 @@ const CourseContent: FC<Props> = ({
                         </div>
 
                         <input
+                          required
                           type="text"
                           className="bg-[#131237] p-1 rounded"
                           value={video.title}
@@ -277,6 +295,7 @@ const CourseContent: FC<Props> = ({
                           }}
                         />
                         <input
+                          required
                           type="text"
                           className="bg-[#131237] p-1 rounded"
                           value={video.url}
@@ -331,11 +350,12 @@ const CourseContent: FC<Props> = ({
         >
           Pre
         </div>
-        <div
-          className=" bg-blue-700 cursor-pointer  text-white rounded px-4 hover:bg-purple-950 duration-300 w-fit"
-          onClick={handelNext}
-        >
-          Next
+        <div className="text-right cursor-pointer" onClick={handelNext}>
+          <input
+            type="submit"
+            value={"Next"}
+            className="bg-blue-700 cursor-pointer text-white rounded px-4 hover:bg-purple-950 duration-300 w-fit"
+          />
         </div>
       </div>
     </div>
