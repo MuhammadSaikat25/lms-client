@@ -13,9 +13,10 @@ import { useGetAllCourseQuery } from "../../../redux/feature/course/courseApi";
 import { FadeLoader } from "react-spinners";
 
 const AllCoursesUi = () => {
-  const { data } = useGetAllCourseQuery(undefined);
+  const { data,error } = useGetAllCourseQuery(undefined);
   const [courses, setCourses] = React.useState([]);
-
+  console.log(data)
+  console.log(error)
   React.useEffect(() => {
     setCourses(data?.data);
   }, [data?.data]);

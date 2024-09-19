@@ -3,7 +3,7 @@ import MyClassUi from "../../components/my-class/MyClassUi";
 
 const MyClass = () => {
     return (
-        <div className="bg-[#080826] h-fit">
+        <div className=" h-fit">
             <MyClassUi/>
         </div>
     );

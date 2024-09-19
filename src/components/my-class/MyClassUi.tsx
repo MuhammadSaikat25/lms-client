@@ -8,14 +8,19 @@ import { useEffect, useState } from "react";
 const MyClassUi = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
   const [enrollCourses, setEnrollCourses] = useState();
-  const { data: allUsers,refetch } = useGetAllUserQuery(undefined);
+  const { data: allUsers, refetch } = useGetAllUserQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
   const loginUser =
     user && allUsers?.data.find((allUser: any) => allUser.email === user.email);
 
-  const { data: allCourse } = useGetAllCourseForStudentQuery(undefined);
+  const { data: allCourse, refetch: allCourseRefetch } =
+    useGetAllCourseForStudentQuery(undefined, {
+      refetchOnMountOrArgChange: true,
+    });
 
   useEffect(() => {
-    refetch()
+    refetch();
     const course =
       loginUser &&
       allCourse?.data.filter(
@@ -24,10 +29,12 @@ const MyClassUi = () => {
           loginUser.courses.some((course: any) => course.courseId === item._id)
       );
     setEnrollCourses(course);
+    allCourseRefetch();
   }, [loginUser, allCourse]);
+
   return (
-    <div className="lg:w-[70%] mx-auto mb-3">
-      <h1 className="text-gray-300 my-8">
+    <div className="lg:w-[70%] mx-auto mb-3 p-2">
+      <h1 className="text-gray-300 py-4">
         Welcome back <span className="text-blue-400">{user?.name}</span>, ready
         for your lesson?
       </h1>

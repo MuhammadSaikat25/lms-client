@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import bg from "../../assets/banner.jpg";
+import Heroes from "../../components/home/Heroes/Heroes";
 const Home = () => {
   const [scroll, setScroll] = useState(0);
 
@@ -23,6 +24,7 @@ const Home = () => {
         } transition-colors duration-1000`}
       ></div>
       <div className="w-full h-screen bg-green-500"></div>
+      <Heroes/>
     </div>
   );
 };

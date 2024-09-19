@@ -5,7 +5,6 @@ import { CiMenuFries } from "react-icons/ci";
 import logo from "../assets/ph_logo.png";
 import { useAppSelector } from "../redux/hook";
 import { RootState } from "../redux/store";
-import { CgProfile } from "react-icons/cg";
 import Profile from "./Profile";
 import avatar from "../assets/avatarD.jpg";
 const Header = () => {

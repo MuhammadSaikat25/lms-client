@@ -9,6 +9,7 @@ const courseApi = baseApi.injectEndpoints({
         body: data,
         credentials: "include",
       }),
+      invalidatesTags: ["course"],
     }),
     // for admin dashboard
     getAllCourse: builder.query({
@@ -17,10 +18,10 @@ const courseApi = baseApi.injectEndpoints({
         method: "GET",
         credentials: "include",
       }),
+      providesTags: ["course"],
     }),
     updateCourse: builder.mutation({
       query: ({ id, updateData }) => {
-        console.log(id, "api");
         return {
           url: `update-course/${id}`,
           method: "PUT",
@@ -28,6 +29,7 @@ const courseApi = baseApi.injectEndpoints({
           credentials: "include",
         };
       },
+      invalidatesTags: ["course"],
     }),
     // get all course for user
     getAllCourseForStudent: builder.query({
@@ -35,8 +37,9 @@ const courseApi = baseApi.injectEndpoints({
         url: "course",
         method: "GET",
       }),
+      providesTags: ["course"],
     }),
-    
+
     getSingleCourse: builder.query({
       query: (id) => ({
         url: `course/${id}`,
@@ -50,5 +53,5 @@ export const {
   useGetAllCourseQuery,
   useUpdateCourseMutation,
   useGetAllCourseForStudentQuery,
-  useGetSingleCourseQuery
+  useGetSingleCourseQuery,
 } = courseApi;

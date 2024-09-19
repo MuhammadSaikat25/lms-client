@@ -17,6 +17,7 @@ const Login = () => {
     e.preventDefault();
     const res = await login({ email, password });
     const user = await verifyToken(res.data.token || "");
+    console.log(user)
     dispatch(setUser({ user, token: res?.data?.token }));
     navigate("/");
   };

@@ -36,7 +36,7 @@ const PaymentForm = ({ course }: Props) => {
       elements,
       redirect: "if_required",
     });
-
+      console.log(paymentIntent)
     if (error) {
       setMessage(error.message);
       setIsLoading(false);
