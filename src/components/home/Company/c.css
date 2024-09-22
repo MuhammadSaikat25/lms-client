@@ -1,0 +1,17 @@
+.image-container {
+  perspective: 1000px;
+  /* width: 300px; */
+}
+
+.image-container img {
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  width: 70%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.image-container:hover img {
+  transform: rotateY(-40deg);
+  box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.8);
+}

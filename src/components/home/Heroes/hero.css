@@ -1,57 +1,56 @@
 .slider {
-    width: 100%;
-    border: 1px solid red;
-    height: var(--height);
-    overflow: hidden; /* Prevents items from overflowing outside the slider */
+  width: 100%;
+  border: 1px solid red;
+  height: var(--height);
+  overflow: hidden; /* Prevents items from overflowing outside the slider */
+}
+
+.slider .list {
+  display: flex;
+  gap: 20px;
+  position: relative;
+  animation: autoRun 10s linear infinite;
+  width: calc(100% + 20px * 4); /* Adjust this based on the number of items */
+}
+
+.slider .list .item {
+  height: var(--height);
+  width: var(--width);
+  flex-shrink: 0; /* Prevents items from shrinking */
+  position: relative;
+}
+
+.slider .list .item img {
+  height: var(--height);
+  width: 100%;
+}
+
+.slider .list .item .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #5C53FE;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slider .list .item:hover .title {
+  opacity: 1;
+}
+
+.slider:hover .list {
+  animation-play-state: paused;
+}
+
+@keyframes autoRun {
+  0% {
+    transform: translateX(0);
   }
-  
-  .slider .list {
-    display: flex;
-    gap: 20px;
-    position: relative;
-    animation: autoRun 10s linear infinite;
-    width: calc(100% + 20px * 4); /* Adjust this based on the number of items */
+  100% {
+    transform: translateX(-100%);
   }
-  
-  .slider .list .item {
-    height: var(--height);
-    width: var(--width);
-    flex-shrink: 0; /* Prevents items from shrinking */
-    position: relative;
-  }
-  
-  .slider .list .item img {
-    height: var(--height);
-    width: 100%;
-  }
-  
-  .slider .list .item .title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #5C53FE;
-    color: white;
-    text-align: center;
-    padding: 5px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .slider .list .item:hover .title {
-    opacity: 1;
-  }
-  
-  .slider:hover .list {
-    animation-play-state: paused;
-  }
-  
-  @keyframes autoRun {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
+}

@@ -2,124 +2,185 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.custom-border-radius {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
 
 .custom-scroll::-webkit-scrollbar {
-    display: none;
-  }
-  
-  
-  .custom-scroll {
-    -ms-overflow-style: none;  
-    scrollbar-width: none;  
-  }
-  
-  body{
-    font-family: "Roboto", sans-serif;
-  }
-::-webkit-scrollbar{
-    width: 3px;
-  }
-  
-  ::-webkit-scrollbar-track{
-    background: #7E22CE;
-  }
+  display: none;
+}
 
-  
-  
-  @layer utilities {
-    .text-gradient {
-      background-image: linear-gradient(96.2deg, rgb(255, 230, 112) 10.4%, rgb(255, 100, 100) 43.8%, rgb(0, 93, 219) 105.8%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-  }
-  
-  @layer utilities {
-    .CourseSpecialty {
-      background-image: linear-gradient(180deg, rgb(6, 1, 14) 4%, rgb(48, 48, 139) 96.5%);
-      background-clip: border-box; /* Ensures the gradient is applied to the entire element */
-      -webkit-background-clip: border-box;
-      background-size: cover; /* Ensure the gradient covers the entire element */
-      color: white; /* Set text color, since clipping is removed */
-    }
-  }
-  
-  
-  @layer utilities {
-    .text-gradient2 {
-      background-image: linear-gradient(110.1deg, rgb(241, 115, 30) 18.9%, rgb(231, 29, 54) 90.7%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-  }
+.custom-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-  @layer utilities {
-    .text-gradient3 {
-      background-image: linear-gradient( 68.1deg,  rgba(196,69,69,1) 9.2%, rgba(255,167,73,0.82) 25%, rgba(253,217,82,0.82) 43.4%, rgba(107,225,108,0.82) 58.2%, rgba(107,169,225,0.82) 75.1%, rgba(153,41,243,0.82) 87.3% );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-  }
-  
-  @layer utilities {
-    .text-gradient4 {
-      background-image: linear-gradient( 89.9deg,  rgba(255,243,110,1) 16.9%, rgba(30,204,214,1) 55.1%, rgba(5,54,154,1) 90.7% );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-  }
-  .gradient-background1 {
-    background: linear-gradient(to bottom, #241032, #010313);
-  }
-  @layer utilities {
-    .webName {
-      background-image: linear-gradient( 89.9deg,  rgba(255,243,110,1) 16.9%, rgba(30,204,214,1) 55.1%, rgba(5,54,154,1) 90.7% );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-  }
-  
-  @layer utilities {
-    .footer {
-      background-image:  linear-gradient(228.02deg, rgb(242, 54, 255) 16.1%, rgba(92, 82, 253, 0.67) 60.73%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-  }
-  
+body {
+  font-family: "Roboto", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
 
-  @layer utilities {
-    .modal-gradient {
-      background-image: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-  }
+::-webkit-scrollbar-track {
+  background: #7e22ce;
+}
 
-  .gradient-background {
-    background: radial-gradient(
-      164.1% 251.8% at 49.44% 266.96%, 
-      rgb(93, 16, 143) 0%, 
-      rgb(86, 15, 133) 32.31%, 
-      rgb(68, 12, 105) 56.01%, 
-      rgb(39, 6, 60) 75%, 
-      rgb(14, 2, 23) 100%
+@layer utilities {
+  .text-gradient {
+    background-image: linear-gradient(
+      96.2deg,
+      rgb(255, 230, 112) 10.4%,
+      rgb(255, 100, 100) 43.8%,
+      rgb(0, 93, 219) 105.8%
     );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
   }
-  
-  
+}
+
+@layer utilities {
+  .CourseSpecialty {
+    background-image: linear-gradient(
+      180deg,
+      rgb(6, 1, 14) 4%,
+      rgb(48, 48, 139) 96.5%
+    );
+    background-clip: border-box; 
+    -webkit-background-clip: border-box;
+    background-size: cover; 
+    color: white; 
+  }
+}
+.card {
+  background: linear-gradient(to bottom, #02000b, #020107);
+}
+.popularCourse {
+  background: linear-gradient(to bottom, #23194f, #0c052f);
+}
+.popularCourse2 {
+  background: linear-gradient(to bottom,  #23194F,#604CC3);
+}
+.company {
+  background: linear-gradient(to bottom,  #0D0631,#000001);
+}
+.grad {
+  background: linear-gradient(to bottom, #02000b, #020107);
+}
+.grad2 {
+  background: linear-gradient(to bottom, #0E0631, #03010b);
+}
+
+@layer utilities {
+  .text-gradient2 {
+    background-image: linear-gradient(
+      110.1deg,
+      rgb(241, 115, 30) 18.9%,
+      rgb(231, 29, 54) 90.7%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+
+@layer utilities {
+  .text-gradient3 {
+    background-image: linear-gradient(
+      68.1deg,
+      rgba(196, 69, 69, 1) 9.2%,
+      rgba(255, 167, 73, 0.82) 25%,
+      rgba(253, 217, 82, 0.82) 43.4%,
+      rgba(107, 225, 108, 0.82) 58.2%,
+      rgba(107, 169, 225, 0.82) 75.1%,
+      rgba(153, 41, 243, 0.82) 87.3%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+
+@layer utilities {
+  .text-gradient4 {
+    background-image: linear-gradient(
+      89.9deg,
+      rgba(255, 243, 110, 1) 16.9%,
+      rgba(30, 204, 214, 1) 55.1%,
+      rgba(5, 54, 154, 1) 90.7%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+.gradient-background1 {
+  background: linear-gradient(to bottom, #241032, #010313);
+}
+@layer utilities {
+  .webName {
+    background-image: linear-gradient(
+      89.9deg,
+      rgba(255, 243, 110, 1) 16.9%,
+      rgba(30, 204, 214, 1) 55.1%,
+      rgba(5, 54, 154, 1) 90.7%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+
+@layer utilities {
+  .footer {
+    background-image: linear-gradient(
+      228.02deg,
+      rgb(242, 54, 255) 16.1%,
+      rgba(92, 82, 253, 0.67) 60.73%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+
+@layer utilities {
+  .modal-gradient {
+    background-image: linear-gradient(
+      112.1deg,
+      rgb(32, 38, 57) 11.4%,
+      rgb(63, 76, 119) 70.2%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+@layer utilities {
+  .card {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}
+
+.gradient-background {
+  background: radial-gradient(
+    164.1% 251.8% at 49.44% 266.96%,
+    rgb(93, 16, 143) 0%,
+    rgb(86, 15, 133) 32.31%,
+    rgb(68, 12, 105) 56.01%,
+    rgb(39, 6, 60) 75%,
+    rgb(14, 2, 23) 100%
+  );
+}
