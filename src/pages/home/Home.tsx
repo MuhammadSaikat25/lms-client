@@ -4,6 +4,8 @@ import Heroes from "../../components/home/Heroes/Heroes";
 import Card from "../../components/home/card/Card";
 import PopularCourse from "../../components/home/popular-course/PopularCourse";
 import Company from "../../components/home/Company/Company";
+import Team from "../../components/home/team/Team";
+import HomeFaq from "../../components/home/Faq/HomeFaq";
 
 const Home = () => {
   const [scroll, setScroll] = useState(0);
@@ -61,8 +63,30 @@ const Home = () => {
         </h1>
         <PopularCourse />
       </div>
-      <div className="">
+      <div className="company">
         <Company />
+      </div>
+      <div
+        className={`pb-[100px] ${
+          scroll > 4235 && 5235 < scroll
+            ? "bg-[#604CC3] transition-colors duration-700"
+            : "bg-[#00001F] transition-colors duration-700"
+        } `}
+      >
+        <Team />
+      </div>
+
+      <div
+        className={`p-5 ${
+          scroll < 5235
+            ? "bg-[#00001F] text-gray-400 transition-colors duration-700"
+            : "bg-[#604CC3] transition-colors duration-700"
+        }`}
+      >
+        <div className="flex flex-col lg:flex-row items-center lg:justify-end lg:pr-32 gap-5 ">
+          <h1 className="text-gray-300 text-[20px]">Faq_</h1>
+          <HomeFaq />
+        </div>
       </div>
     </div>
   );

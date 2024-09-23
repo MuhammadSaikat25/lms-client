@@ -19,7 +19,6 @@ const Card = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(scroll)
   return (
     <div className="flex flex-col ">
       <div className="w-fit mx-auto p-4">
@@ -31,7 +30,9 @@ const Card = () => {
         >
           <div className="bg-[#163580] p-14 rounded-tr-xl md:rounded-tr-none rounded-br-xl md:rounded-br-none rounded-tl-xl rounded-bl-xl">
             <div className="mt-3">
-              <p className="text-white text-[20px] font-semibold">ZERO TO CAREER</p>
+              <p className="text-white text-[20px] font-semibold">
+                ZERO TO CAREER
+              </p>
               <p className="text-white">
                 You will{" "}
                 <span className="bg-orange-500 p-1 rounded-md">
@@ -105,7 +106,9 @@ const Card = () => {
         >
           <div className="bg-[#611879] p-14 rounded-tr-xl md:rounded-tr-none rounded-br-xl md:rounded-br-none rounded-tl-xl rounded-bl-xl">
             <div className="mt-3">
-              <p className="text-white text-[20px] font-semibold">UNLIMITED LIVE SUPPORT</p>
+              <p className="text-white text-[20px] font-semibold">
+                UNLIMITED LIVE SUPPORT
+              </p>
               <div className="text-white">
                 <p>
                   You can Join one to{" "}
