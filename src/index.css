@@ -48,10 +48,10 @@ body {
       rgb(6, 1, 14) 4%,
       rgb(48, 48, 139) 96.5%
     );
-    background-clip: border-box; 
+    background-clip: border-box;
     -webkit-background-clip: border-box;
-    background-size: cover; 
-    color: white; 
+    background-size: cover;
+    color: white;
   }
 }
 .card {
@@ -61,16 +61,22 @@ body {
   background: linear-gradient(to bottom, #23194f, #0c052f);
 }
 .popularCourse2 {
-  background: linear-gradient(to bottom,  #23194F,#604CC3);
+  background: linear-gradient(to bottom, #23194f, #604cc3);
 }
 .company {
-  background: linear-gradient(to bottom,  #0D0631,#00001F);
+  background: linear-gradient(to bottom, #0d0631, #00001f);
+}
+.Impact {
+  background: linear-gradient(to right, #dc02ce, #634efb);
+}
+.Impact2 {
+  background: linear-gradient(to bottom, #000316, #604CC3);
 }
 .grad {
   background: linear-gradient(to bottom, #02000b, #020107);
 }
 .grad2 {
-  background: linear-gradient(to bottom, #0E0631, #03010b);
+  background: linear-gradient(to bottom, #0e0631, #03010b);
 }
 
 @layer utilities {

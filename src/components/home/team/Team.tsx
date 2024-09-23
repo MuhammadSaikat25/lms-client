@@ -105,7 +105,7 @@ const Team = () => {
                   </span>
                 </div>
                 {/* Right Number */}
-                <div
+                {/* <div
                   className="bg-red-600 w-[100px] h-[100px] rounded-full flex items-center justify-center text-white"
                   style={{
                     position: "absolute",
@@ -122,7 +122,7 @@ const Team = () => {
                   >
                     {team[3]}
                   </span>
-                </div>
+                </div> */}
                 {/* Bottom Number */}
                 <div
                   className="bg-red-600 w-[100px] h-[100px] rounded-full flex items-center justify-center text-white"
@@ -203,7 +203,7 @@ const Team = () => {
                   </span>
                 </div>
                 {/* Right Number */}
-                <div
+                {/* <div
                   className="bg-red-600 w-[100px] h-[100px] rounded-full flex items-center justify-center text-white"
                   style={{
                     position: "absolute",
@@ -220,7 +220,7 @@ const Team = () => {
                   >
                     {team[8]}
                   </span>
-                </div>
+                </div> */}
                 {/* Bottom Number */}
                 <div
                   className="bg-red-600 w-[100px] h-[100px] rounded-full flex items-center justify-center text-white"

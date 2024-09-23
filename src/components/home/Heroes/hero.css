@@ -1,8 +1,7 @@
 .slider {
   width: 100%;
-  border: 1px solid red;
   height: var(--height);
-  overflow: hidden; /* Prevents items from overflowing outside the slider */
+  overflow: hidden;
 }
 
 .slider .list {
@@ -10,27 +9,28 @@
   gap: 20px;
   position: relative;
   animation: autoRun 10s linear infinite;
-  width: calc(100% + 20px * 4); /* Adjust this based on the number of items */
+  width: calc(30% + 20px * 4);
 }
 
 .slider .list .item {
   height: var(--height);
   width: var(--width);
-  flex-shrink: 0; /* Prevents items from shrinking */
+  flex-shrink: 0;
   position: relative;
 }
 
 .slider .list .item img {
   height: var(--height);
-  width: 100%;
+  width: 60%;
+  opacity: 80%;
 }
 
 .slider .list .item .title {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  background: #5C53FE;
+  width: 60%;
+  background: #5c53fe;
   color: white;
   text-align: center;
   padding: 5px;
@@ -43,7 +43,7 @@
 }
 
 .slider:hover .list {
-  animation-play-state: paused;
+  /* animation-play-state: paused; */
 }
 
 @keyframes autoRun {

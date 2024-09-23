@@ -7,7 +7,7 @@ import "./c.css";
 const Company = () => {
   return (
     <div className="p-5 pt-[200px] pb-[100px] w-full">
-      <p className="text-center text-white text-3xl py-10">
+      <p className="text-center text-white lg:text-3xl py-10">
         Heroes in top companies_
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 w-[80%] mx-auto">

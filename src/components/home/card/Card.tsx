@@ -19,13 +19,14 @@ const Card = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  console.log(scroll)
   return (
     <div className="flex flex-col ">
       <div className="w-fit mx-auto p-4">
         {/* -------------------------   ZERO TO CAREER -------------------- */}
         <div
           className={`lg:w-[880px] flex-col md:flex md:flex-row my-11 ${
-            scroll > 2200 ? "sticky top-[100px] z-10 " : ""
+            scroll > 1384 ? "sticky top-[100px] z-10 " : ""
           }`}
         >
           <div className="bg-[#163580] p-14 rounded-tr-xl md:rounded-tr-none rounded-br-xl md:rounded-br-none rounded-tl-xl rounded-bl-xl">
@@ -56,7 +57,7 @@ const Card = () => {
         {/* ---------------------- JOB/INTERN GUARANTEE? --------------------- */}
         <div
           className={` lg:w-[880px] flex-col md:flex md:flex-row my-11 ${
-            scroll > 2228 && "sticky top-[150px] z-20 "
+            scroll > 1544 && "sticky top-[150px] z-20 "
           } md:${scroll > 2400 ? "sticky top-[150px] z-20 " : ""}`}
         >
           <div className="bg-[#42BD8A] p-14 rounded-tr-xl md:rounded-tr-none rounded-br-xl md:rounded-br-none rounded-tl-xl rounded-bl-xl">
@@ -101,7 +102,7 @@ const Card = () => {
         {/* ------------- UNLIMITED LIVE SUPPORT ------------ */}
         <div
           className={`lg:w-[880px] flex-col md:flex md:flex-row my-11 ${
-            scroll > 2428 && "sticky top-[200px] z-30 "
+            scroll > 1784 && "sticky top-[200px] z-30 "
           } md:${scroll > 2567 ? "sticky top-[200px] z-30 " : ""}`}
         >
           <div className="bg-[#611879] p-14 rounded-tr-xl md:rounded-tr-none rounded-br-xl md:rounded-br-none rounded-tl-xl rounded-bl-xl">
@@ -146,7 +147,7 @@ const Card = () => {
         {/* ------------------ Personalized Learning Using AI ----------------- */}
         <div
           className={`lg:w-[880px] flex-col md:flex md:flex-row my-11 ${
-            scroll > 2728 && "sticky top-[250px] z-40"
+            scroll > 2024 && "sticky top-[250px] z-40"
           } md:${scroll > 3154 ? "sticky top-[250px] z-40" : ""}`}
         >
           <div className="bg-[#FCCA53] p-14 rounded-tr-xl md:rounded-tr-none rounded-br-xl md:rounded-br-none rounded-tl-xl rounded-bl-xl">
@@ -182,7 +183,7 @@ const Card = () => {
         {/* --------------------- International Remote Jobs ---------------- */}
         <div
           className={`lg:w-[880px] flex-col md:flex md:flex-row my-11 ${
-            scroll > 2930 && "sticky top-[300px] z-50 "
+            scroll > 2264 && "sticky top-[300px] z-50 "
           } md:${scroll > 3354 ? "sticky top-[300px] z-50 " : ""}`}
         >
           <div className="bg-[#3E1D9A] p-14 rounded-tr-xl md:rounded-tr-none rounded-br-xl md:rounded-br-none rounded-tl-xl rounded-bl-xl">
