@@ -75,6 +75,7 @@ const EditCourseComponent: FC<Props> = ({ id }) => {
         url: video.url,
       })),
     }));
+
     const data = {
       name: courseInfo.name,
       description: courseInfo.description,
@@ -83,7 +84,7 @@ const EditCourseComponent: FC<Props> = ({ id }) => {
       tags: courseInfo.tags,
       level: courseInfo.level,
       demoUrl: courseInfo.demoUrl,
-      thumbnail: "",
+      thumbnail: courseInfo.thumbnail,
       benefits,
       prerequisite,
       courseContent,
@@ -92,12 +93,13 @@ const EditCourseComponent: FC<Props> = ({ id }) => {
   };
   const handelCourseCreate = async () => {
     const course = courseData;
+
     await updateCourse({ id: editCourseData._id, updateData: course });
   };
   useEffect(() => {
     if (isSuccess) {
       toast.success("Course update Successful");
-      navigate("/admin/courses");
+      navigate("/admin/all-courses");
     }
   }, [data, isSuccess]);
 

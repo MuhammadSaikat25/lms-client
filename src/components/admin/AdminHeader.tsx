@@ -1,12 +1,15 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import defaultAvatar from "../../assets/defaultAvaTar.png";
+import defaultAvatar from "../../assets/avatarD.jpg";
 import { FaUsers } from "react-icons/fa";
+import { useAppSelector } from "../../redux/hook";
+import { RootState } from "../../redux/store";
 
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
 };
 const AdminHeader = ({ open, setOpen }: Props) => {
+  const user = useAppSelector((state: RootState) => state.auth.user);
   const handelClose = (e: any) => {
     if (e.target.id === "screen") {
       {
@@ -19,12 +22,10 @@ const AdminHeader = ({ open, setOpen }: Props) => {
   return (
     <div className="text-left">
       <div className="hidden lg:block lg:bg-[#170F21] lg:h-svh w-full text-white">
-        <div className="hidden bg-[#170F21] h-full overflow-scroll overflow-y-auto overflow-x-hidden lg:flex flex-col items-center">
+        <div className="hidden bg-[#170F21] h-full overflow-scroll pt-4 overflow-y-auto overflow-x-hidden lg:flex flex-col items-center">
           <img
-            src={defaultAvatar}
-            width={100}
-            height={100}
-            className="mx-auto"
+            src={user?.avatar || defaultAvatar}
+            className="mx-auto  rounded-full h-[70px] w-[70px]"
             alt="image"
           />
 

@@ -19,7 +19,6 @@ const Card = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(scroll)
   return (
     <div className="flex flex-col ">
       <div className="w-fit mx-auto p-4">

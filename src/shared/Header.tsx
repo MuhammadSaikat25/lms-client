@@ -7,6 +7,7 @@ import { useAppSelector } from "../redux/hook";
 import { RootState } from "../redux/store";
 import Profile from "./Profile";
 import avatar from "../assets/avatarD.jpg";
+
 const Header = () => {
   const user = useAppSelector((state: RootState) => state.auth.user);
   const webName = "<Coding/> Hero";
@@ -54,8 +55,8 @@ const Header = () => {
             </div>
             <div className="hidden lg:block">
               {user && (
-                <img
-                  src={avatar}
+                <img title={user && user?.name}
+                  src={user?.avatar || avatar}
                   alt="image"
                   className="cursor-pointer w-[25px] h-[25px] rounded-full object-cover"
                   onClick={() => setProfile(!profile)}
