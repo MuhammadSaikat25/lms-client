@@ -54,6 +54,10 @@ body {
     color: white;
   }
 }
+
+.teamImg {
+  background-image: url(./assets/grid-bg.png);
+}
 .card {
   background: linear-gradient(to bottom, #02000b, #020107);
 }
@@ -70,13 +74,17 @@ body {
   background: linear-gradient(to right, #dc02ce, #634efb);
 }
 .Impact2 {
-  background: linear-gradient(to bottom, #000316, #604CC3);
+  background: linear-gradient(to bottom, #000316, #604cc3);
 }
 .grad {
   background: linear-gradient(to bottom, #02000b, #020107);
 }
 .grad2 {
   background: linear-gradient(to bottom, #0e0631, #03010b);
+}
+
+.faqImg {
+  background-image: url(./assets/bottom-layer.webp);
 }
 
 @layer utilities {

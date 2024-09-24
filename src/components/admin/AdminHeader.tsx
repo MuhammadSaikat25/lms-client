@@ -139,7 +139,8 @@ const AdminHeader = ({ open, setOpen }: Props) => {
           id="screen"
         >
           <div className="w-[50%] fixed z-[999999999] h-screen bg-[#170F21] text-white p-2  top-0 right-0 ">
-            <div className="flex flex-col gap-3 items-center">
+            <div className="flex flex-col w-fit mx-auto  gap-3">
+              <NavLink to={"/"}>Home</NavLink>
               <NavLink
                 className={`${
                   location.pathname === "/admin" && "text-gradient2"

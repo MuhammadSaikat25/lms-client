@@ -7,6 +7,8 @@ import Company from "../../components/home/Company/Company";
 import Team from "../../components/home/team/Team";
 import HomeFaq from "../../components/home/Faq/HomeFaq";
 import clogo from "../../assets/clogo.png";
+import faqGrid from "../../assets/faqGrid.png";
+
 import Impact from "../../components/home/Impact/Impact";
 const Home = () => {
   const [scroll, setScroll] = useState(0);
@@ -76,22 +78,25 @@ const Home = () => {
           scroll > 3125 && "sm:bg-[#00001F]"
         } ${
           scroll > 5207
-            ? "lg:bg-[#604CC3] transition-colors duration-700"
-            : "lg:bg-[#00001F] transition-colors duration-700"
+            ? " lg:bg-[#604CC3] transition-colors duration-700"
+            : " lg:bg-[#00001F] transition-colors duration-700"
         } `}
       >
         <Team />
       </div>
 
       <div
-        className={`p-5 pt-40 lg:pt-10 pb-11 ${
+        className={`p-5 pt-40 lg:pt-10 pb-32 ${
           scroll < 5207
             ? "bg-[#00001F] text-gray-400 transition-colors duration-700"
             : "bg-[#604CC3] transition-colors duration-700"
         }`}
       >
-        <div className="flex flex-col lg:flex-row items-center lg:justify-end lg:pr-32 gap-5 ">
+        <div className="flex relative flex-col lg:flex-row items-center lg:justify-end lg:pr-32 gap-5  ">
           <h1 className="text-gray-300 text-[20px]">Faq_</h1>
+          <div className="absolute ">
+            <img src={faqGrid} alt="" />
+          </div>
           <HomeFaq />
         </div>
       </div>

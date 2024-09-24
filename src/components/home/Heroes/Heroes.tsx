@@ -8,6 +8,9 @@ import "./hero.css";
 const Heroes = () => {
   return (
     <div className="w-full lg:pt-20 bg-[#000316] p-3">
+      <h1 className="text-center text-gray-300 py-10">
+        Students who successfully get <br /> job doing our course{" "}
+      </h1>
       <div
         className="slider"
         style={

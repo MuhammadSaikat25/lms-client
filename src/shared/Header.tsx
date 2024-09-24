@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Nav from "./Nav";
 import { CiMenuFries } from "react-icons/ci";
-import logo from "../assets/ph_logo.png";
+import logo from "../assets/clogo.png";
 import { useAppSelector } from "../redux/hook";
 import { RootState } from "../redux/store";
 import Profile from "./Profile";
@@ -85,6 +85,11 @@ const Header = () => {
               <Nav isMobile={true} />
               {user ? (
                 <div className="">
+                  {user?.role === "admin" && (
+                    <div className="text-center pb-2">
+                      <Link to={"/admin"}>Admin Dashboard</Link>
+                    </div>
+                  )}
                   <NavLink
                     onClick={() => setProfile(false)}
                     className={

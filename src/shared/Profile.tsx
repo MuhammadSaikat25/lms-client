@@ -29,7 +29,7 @@ const Profile = ({ setProfile }: Props) => {
         <Link to={""}>My Classes</Link>
         <Link to={""}>Bookmark</Link>
         <Link to={""}>Chat GPT</Link>
-        {user && (
+        {user?.role === "admin" && (
           <div className="">
             <Link to={"/admin"}>Admin Dashboard</Link>
           </div>

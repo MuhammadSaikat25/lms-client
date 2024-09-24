@@ -7,6 +7,7 @@ const CourseUi = () => {
   const { data } = useGetAllCourseForStudentQuery(undefined);
 
   const [allCourse, setAllCourse] = useState([]);
+
   useEffect(() => {
     setAllCourse(data?.data.slice(8));
   }, [data]);

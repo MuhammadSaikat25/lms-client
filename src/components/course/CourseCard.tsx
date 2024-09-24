@@ -10,7 +10,8 @@ const CourseCard = ({ allCourse }: Props) => {
     <div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 w-fit mx-auto">
         {allCourse?.map((course: any, i: number) => (
-          <Link to={`/course-details/${course._id}`}
+          <Link
+            to={`/course-details/${course._id}`}
             key={i}
             className="text-white border rounded-md bg-[#3A00AA] border-[#29017E] w-[250px]"
           >
@@ -31,10 +32,10 @@ const CourseCard = ({ allCourse }: Props) => {
                 <Rating
                   name="half-rating-read"
                   readOnly
-                  defaultValue={course.ratings || 0}
+                  defaultValue={Number(course.averageRating) || 0}
                   precision={0.5}
                 />
-                <span>({course.purchased})</span>
+                <span>({course.purchased}) </span>
               </section>
               <h1>$: {course.price}</h1>
             </div>
