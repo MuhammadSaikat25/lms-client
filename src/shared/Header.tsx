@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full relative text-white bg-[#100829] border-b border-[#0A73DB] border-opacity-15">
+    <div className="w-full p-5 relative text-white bg-[#100829] border-b border-[#0A73DB] border-opacity-15">
       <div className="">
         <div className="p-6 flex items-center justify-between lg:px-[160px]">
           <Link to={"/"} className="flex items-center">

@@ -1,59 +1,68 @@
 .course-container {
-    display: flex;
-    justify-content: space-between; /* Keep the items spread horizontally */
-    overflow: hidden;     /* Prevent overflow from showing */
-    height: 150px;        /* Adjust height to allow room for vertical movement */
-    width: 100vw;         /* Full width for the container */
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  height: 450px;
+  width: 95vw;
+  position: relative;
 }
 
 .course {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 10px;
+  animation: zigzag 12s linear infinite;
 }
 
-.course p {
-    position: relative;
-    animation: zigzag 15s linear infinite; /* Slower animation (15 seconds) */
-}
-
-/* Keyframes for right-to-left zigzag motion */
 @keyframes zigzag {
-    0% {
-        transform: translateX(100vw) translateY(0px); /* Start far right outside the screen */
-    }
-    25% {
-        transform: translateX(50vw) translateY(-20px); /* Move to the center and up */
-    }
-    50% {
-        transform: translateX(0vw) translateY(20px);  /* Move to the left edge and down */
-    }
-    75% {
-        transform: translateX(-50vw) translateY(-20px); /* Move off-screen to the left and up */
-    }
-    100% {
-        transform: translateX(-100vw) translateY(0px);  /* Exit completely to the left */
-    }
+  0% {
+    transform: translateX(100vw) translateY(0);
+  }
+  25% {
+    transform: translateX(50vw) translateY(-30px);
+  }
+  50% {
+    transform: translateX(0vw) translateY(30px);
+  }
+  75% {
+    transform: translateX(-50vw) translateY(-30px);
+  }
+  100% {
+    transform: translateX(-100vw) translateY(0);
+  }
 }
 
-/* Delays for each <p> element to stagger the start times (train-like effect) */
-.course:nth-child(1) p {
-    animation-delay: 0s;  /* Starts immediately */
+.course:nth-child(1) {
+  animation-delay: 0s;
 }
 
-.course:nth-child(2) p {
-    animation-delay: 3s;  /* Starts 3 seconds later */
+.course:nth-child(2) {
+  animation-delay: -2s;
 }
 
-.course:nth-child(3) p {
-    animation-delay: 6s;  /* Starts 6 seconds later */
+.course:nth-child(3) {
+  animation-delay: -4s;
 }
 
-.course:nth-child(4) p {
-    animation-delay: 9s;  /* Starts 9 seconds later */
+.course:nth-child(4) {
+  animation-delay: -6s;
 }
 
-.course:nth-child(5) p {
-    animation-delay: 12s; /* Starts 12 seconds later */
+.course:nth-child(5) {
+  animation-delay: -8s;
+}
+
+.course:nth-child(6) {
+  animation-delay: -10s;
+}
+
+.course:nth-child(7) {
+  animation-delay: -12s; /* Adjust to keep the rhythm */
+}
+
+.course:nth-child(8) {
+  animation-delay: -14s; /* Adjust to keep the rhythm */
 }

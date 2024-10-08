@@ -7,9 +7,10 @@ import Company from "../../components/home/Company/Company";
 import Team from "../../components/home/team/Team";
 import HomeFaq from "../../components/home/Faq/HomeFaq";
 import clogo from "../../assets/clogo.png";
-import faqGrid from "../../assets/faqGrid.png";
 
 import Impact from "../../components/home/Impact/Impact";
+import FaqImage from "../../components/home/Faq/FaqImage";
+import Text from "../../components/home/test/Text";
 const Home = () => {
   const [scroll, setScroll] = useState(0);
 
@@ -26,8 +27,12 @@ const Home = () => {
 
   return (
     <div>
-      <img src={bg} alt="Banner" className="w-full" />
-
+      <div className="relative">
+        <img src={bg} alt="Banner" className="w-full" />
+        <div className="absolute top-20 left-36 lg:top-[200px] lg:left-[300px]">
+          <Text />
+        </div>
+      </div>
       <div className={`w-full flex justify-end bg-[#000316] relative pb-10 `}>
         <img
           className={`w-[300px] absolute h-300px] transition-transform duration-1000
@@ -65,11 +70,12 @@ const Home = () => {
           scroll > 2984 && 4592 < scroll ? "grad2" : "popularCourse"
         } transition-colors duration-1000`}
       >
-        <h1 className="text-[#B7C9FF] text-center text-[20px] py-4">
+        <h1 className="text-[#B7C9FF] text-center text-[20px] py-4 text-2xl lg:text-3xl">
           Our most popular course_
         </h1>
         <PopularCourse />
       </div>
+
       <div className="company">
         <Company />
       </div>
@@ -92,10 +98,10 @@ const Home = () => {
             : "bg-[#604CC3] transition-colors duration-700"
         }`}
       >
-        <div className="flex relative flex-col lg:flex-row items-center lg:justify-end lg:pr-32 gap-5  ">
+        <div className="flex relative flex-col lg:flex-row items-center lg:justify-center lg:pr-32 gap-10  ">
           <h1 className="text-gray-300 text-[20px]">Faq_</h1>
-          <div className="absolute ">
-            <img src={faqGrid} alt="" />
+          <div className="">
+            <FaqImage />
           </div>
           <HomeFaq />
         </div>

@@ -31,10 +31,10 @@ const HomeFaq = () => {
 
   return (
     <div
-      className={`lg:w-[50%] relative p-4 rounded-md text-white ${
+      className={`lg:w-[50%] right-16 relative p-4 rounded-md text-white ${
         scroll < 5207
           ? "  text-gray-400 transition-colors duration-700"
-          : " transition-colors duration-700  shadow-xl shadow-gray-700"
+          : " transition-colors duration-700 "
       } `}
     >
       {questions?.map((faq: any, index: number) => (

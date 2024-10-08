@@ -89,26 +89,28 @@ body {
 .grad2 {
   background: linear-gradient(to bottom, #0e0631, #03010b);
 }
-  
+
 .faqImg {
   background-image: url(./assets/bottom-layer.webp);
 }
-.howCourseWork{
-  background: linear-gradient(to right, #220D39, #15063C);
+.howCourseWork {
+  background: linear-gradient(to right, #220d39, #15063c);
 }
-
+.faq {
+  background: linear-gradient(to right, #604cc3, #00001f);
+}
 .Specialty {
   background: linear-gradient(
     to bottom,
-    rgba(49, 49, 53, 0.7),  /* 10% opacity for the first color */
-    rgba(53, 1, 158, 0.1)   /* 10% opacity for the second color */
+    rgba(49, 49, 53, 0.7),
+    rgba(53, 1, 158, 0.1)
   );
 }
 .Specialty2 {
   background: linear-gradient(
     to bottom,
-    rgba(44, 1, 135, 0.7),  /* 10% opacity for the first color */
-    rgba(53, 1, 158, 0.1)   /* 10% opacity for the second color */
+    rgba(44, 1, 135, 0.7),
+    rgba(53, 1, 158, 0.1)
   );
 }
 @layer utilities {

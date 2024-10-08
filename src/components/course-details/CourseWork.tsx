@@ -7,18 +7,7 @@ type Props = {
 const CourseWork = ({ id }: Props) => {
   const [course, setCourse] = useState<any>();
   const { data } = useGetSingleCourseQuery(id, { skip: !id });
-  const [scroll, setScroll] = useState(0);
-
-  const handleScroll = () => {
-    setScroll(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  
   useEffect(() => {
     setCourse(data?.data.name);
   }, [data]);

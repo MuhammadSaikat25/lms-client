@@ -7,56 +7,65 @@ import ps from "../../../assets/ps.jpeg";
 
 const PopularCourse = () => {
   return (
-    <div className="course-container  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 p-10 gap-3">
+    <div className="course-container">
       <div className="course">
-        <div className="">
-          <img
-            className="w-[250px] h-[250px] rounded-lg object-fill"
-            src={java}
-            alt=""
-          />
-        </div>
+        <img
+          className="imageDIV  lg:w-[450px] h-[250px] rounded-lg object-fill"
+          src={java}
+          alt="Java Full Stack Course"
+        />
       </div>
       <div className="course">
-        <div className="">
-          <img
-            className="w-[250px] h-[250px] rounded-lg object-fill"
-            src={mern}
-            alt=""
-          />
-        </div>
+        <img
+          className="imageDIV lg:w-[450px] h-[250px] rounded-lg object-fill"
+          src={mern}
+          alt="MERN Stack Course"
+        />
       </div>
       <div className="course">
-        <div className="">
-          <img
-            className="w-[250px] h-[250px] rounded-lg object-fill"
-            src={ts}
-            alt=""
-          />
-        </div>
+        <img
+          className="imageDIV lg:w-[450px] h-[250px] rounded-lg object-fill"
+          src={ts}
+          alt="TypeScript Course"
+        />
       </div>
       <div className="course">
-        <div className="">
-          <img
-            className="w-[250px] h-[250px] rounded-lg object-fill"
-            src={ps}
-            alt=""
-          />
-        </div>
+        <img
+          className="imageDIV lg:w-[450px] h-[250px] rounded-lg object-fill"
+          src={ps}
+          alt="Photoshop Course"
+        />
       </div>
       <div className="course">
-        <div className="">
-          <img
-            className="w-[250px] h-[250px] rounded-lg object-fill"
-            src={py}
-            alt=""
-          />
-        </div>
+        <img
+          className="imageDIV lg:w-[450px] h-[250px] rounded-lg object-fill"
+          src={py}
+          alt="Python Course"
+        />
+      </div>
+      <div className="course">
+        <img
+          className="imageDIV lg:w-[450px] h-[250px] rounded-lg object-fill"
+          src={java}
+          alt="Python Course"
+        />
+      </div>
+      <div className="course">
+        <img
+          className="imageDIV lg:w-[450px] h-[250px] rounded-lg object-fill"
+          src={ts}
+          alt="Python Course"
+        />
+      </div>
+      <div className="course">
+        <img
+          className="imageDIV lg:w-[450px] h-[250px] rounded-lg object-fill"
+          src={mern}
+          alt="Python Course"
+        />
       </div>
     </div>
   );
 };
 
 export default PopularCourse;
-
-

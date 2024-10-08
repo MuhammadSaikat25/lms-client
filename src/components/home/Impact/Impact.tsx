@@ -5,7 +5,7 @@ const Impact = () => {
     <div
       className={`py-[150px] Impact2 bg-[#604CC3] lg:flex justify-end lg:px-10`}
     >
-      <div className="w-fit mx-auto lg:mx-0">
+      <div className="w-[80%] lg:w-fit mx-auto lg:mx-0">
         <h1 className="text-gray-400 text-right py-2">
           Our <br /> Impact_
         </h1>

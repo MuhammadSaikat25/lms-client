@@ -1,0 +1,31 @@
+.text {
+  position: relative;
+  font-size: 5vw;
+  color: #010417;
+  -webkit-text-stroke: 0.3vw #8D67FC;
+  text-transform: uppercase;
+}
+.text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #010417;
+  -webkit-text-stroke: 0vw #8D67FC;
+  overflow: hidden;
+  border-right: 2px solid #8D67FC;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  10% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
