@@ -11,16 +11,18 @@ const MyClassUi = () => {
   const { data: allUsers, refetch } = useGetAllUserQuery(undefined, {
     refetchOnMountOrArgChange: true,
   });
+
   const loginUser =
     user && allUsers?.data.find((allUser: any) => allUser.email === user.email);
-
   const { data: allCourse, refetch: allCourseRefetch } =
     useGetAllCourseForStudentQuery(undefined, {
       refetchOnMountOrArgChange: true,
     });
 
   useEffect(() => {
+    console.log(loginUser);
     refetch();
+
     const course =
       loginUser &&
       allCourse?.data.filter(
@@ -28,6 +30,7 @@ const MyClassUi = () => {
           Array.isArray(loginUser.courses) &&
           loginUser.courses.some((course: any) => course.courseId === item._id)
       );
+
     setEnrollCourses(course);
     allCourseRefetch();
   }, [loginUser, allCourse]);

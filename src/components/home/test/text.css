@@ -15,7 +15,7 @@
   color: #010417;
   -webkit-text-stroke: 0vw #8D67FC;
   overflow: hidden;
-  border-right: 2px solid #8D67FC;
+  /* border-right: 2px solid #8D67FC; */
   animation: animate 6s linear infinite;
 }
 

@@ -11,6 +11,7 @@ type Props = {
 };
 
 const MyEnrollCourses = ({ enrollCourses }: Props) => {
+  console.log(enrollCourses)
   const navigate = useNavigate();
   const wName = "<Coding/> Hero";
   const [postReview] = usePostReviewMutation();

@@ -2,7 +2,7 @@ import CourseUi from "../../components/course/CourseUi";
 
 const Course = () => {
   return (
-    <div className="bg-[#080826] p-10">
+    <div className="bg-[#010313] p-10">
       <CourseUi />
     </div>
   );

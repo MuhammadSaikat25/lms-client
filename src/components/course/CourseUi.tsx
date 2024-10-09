@@ -9,7 +9,7 @@ const CourseUi = () => {
   const [allCourse, setAllCourse] = useState([]);
 
   useEffect(() => {
-    setAllCourse(data?.data.slice(8));
+    setAllCourse(data?.data);
   }, [data]);
 
   return (
