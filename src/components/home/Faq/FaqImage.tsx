@@ -58,7 +58,7 @@ const FaqImage: React.FC = () => {
   }, []);
 
   return (
-    <div className="absolute">
+    <div className="absolute -bottom-20">
       <img ref={cardRef} className="lg:w-[800px]" src={faqGrid} alt="FAQ" />
       <div ref={glossRef} id="gloss" className="gloss overflow-hidden"></div>
     </div>

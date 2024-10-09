@@ -34,3 +34,75 @@ i {
     transform: rotate(360deg);
   }
 }
+
+
+.team-section {
+  padding: 12px;
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.title {
+  color: #ccc;
+  font-size: 32px;
+}
+
+.description {
+  color: #ccc;
+  padding: 10px 0;
+}
+
+.team-container {
+  position: relative;
+  margin: 0 auto;
+  height: 500px;
+  overflow: hidden;
+  width: 80%;
+}
+
+.random-image {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transition: opacity 1s ease;
+}
+
+.random-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+  .team-container {
+    width: 100%;
+    height: 300px;
+  }
+
+  .random-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  .random-image {
+    position: static;
+    margin: 0 auto;
+  }
+}

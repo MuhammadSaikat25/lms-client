@@ -7,6 +7,8 @@ import Company from "../../components/home/Company/Company";
 import Team from "../../components/home/team/Team";
 import HomeFaq from "../../components/home/Faq/HomeFaq";
 import clogo from "../../assets/clogo.png";
+import Lottie from "lottie-react";
+import ani from "../../assets/newA.json";
 
 import Impact from "../../components/home/Impact/Impact";
 import FaqImage from "../../components/home/Faq/FaqImage";
@@ -31,6 +33,15 @@ const Home = () => {
         <img src={bg} alt="Banner" className="w-full" />
         <div className="absolute top-20 left-36 lg:top-[200px] lg:left-[300px]">
           <Text />
+        </div>
+        <div className="absolute bottom-40 right-0">
+          <Lottie
+            color="" // Change to the desired color
+            animationData={ani}
+            className="hidden md:block text-yellow-400"
+            loop={true}
+            style={{ width: 200, height: 200 }}
+          />
         </div>
       </div>
       <div className={`w-full flex justify-end bg-[#000316] relative pb-10 `}>

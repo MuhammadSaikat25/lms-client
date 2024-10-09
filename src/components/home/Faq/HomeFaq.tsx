@@ -4,9 +4,7 @@ import { useGetHeroQuery } from "../../../redux/feature/layout/layoutApi";
 const HomeFaq = () => {
   const { data } = useGetHeroQuery("FAQ");
   const [questions, setQuestions] = useState<any[]>([]);
-  const [visibleQuestionIndex, setVisibleQuestionIndex] = useState<
-    number | null
-  >(null);
+  const [visibleQuestionIndex, setVisibleQuestionIndex] = useState<number | null>(null);
   const [scroll, setScroll] = useState(0);
 
   const handleScroll = () => {
@@ -19,6 +17,7 @@ const HomeFaq = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   useEffect(() => {
     if (data) {
       setQuestions(data.data?.faq);
@@ -31,33 +30,31 @@ const HomeFaq = () => {
 
   return (
     <div
-      className={`lg:w-[50%] right-16 relative p-4 rounded-md text-white ${
+      className={`md:w-[70%] lg:w-[50%] right-16 relative p-4 rounded-md text-white ${
         scroll < 5207
-          ? "  text-gray-400 transition-colors duration-700"
-          : " transition-colors duration-700 "
-      } `}
+          ? "text-gray-400 transition-colors duration-700"
+          : "transition-colors duration-700"
+      }`}
     >
       {questions?.map((faq: any, index: number) => (
         <div key={index}>
-          <div className="">
+          <div>
             <div
               onClick={() => toggleAnswerVisibility(index)}
-              className="flex items-center justify-between cursor-pointer gap-1"
+              className="flex items-center justify-between cursor-pointer gap-3"
             >
-              <h1 className="py-2">{faq.question}</h1>
+              <h1 className="py-2 text-2xl">{faq.question}</h1>
               <span>
-                {visibleQuestionIndex === index ? (
-                  <span>-</span>
-                ) : (
-                  <span>+</span>
-                )}
+                {visibleQuestionIndex === index ? <span>-</span> : <span>+</span>}
               </span>
             </div>
-            {visibleQuestionIndex === index && (
-              <div className="mt-1 mb-1">
-                <p className="text-gray-300">{faq.answer}</p>
-              </div>
-            )}
+            <div
+              className={`overflow-hidden transition-all duration-700 ease-in-out ${
+                visibleQuestionIndex === index ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <p className="mt-1 mb-1 text-gray-300">{faq.answer}</p>
+            </div>
           </div>
         </div>
       ))}
