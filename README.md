@@ -5,9 +5,16 @@ This project is a full-featured Learning Management System (LMS) developed using
 
 
 ## Demo
-![Screenshot (6)](https://github.com/user-attachments/assets/6b4e276b-66dc-4591-ac9f-87498f878ebe)
 
 ### https://lmsclinet.vercel.app/
+
+## Admin: 
+#### email: minhajulsaikat008@gmail.com
+#### email: 123456
+## User: 
+#### email: hello@gmail.com
+#### email: 123456
+
 ## Features
 
 Here are the key features of the Learning Management System (LMS) built with the MERN stack:
@@ -48,19 +55,33 @@ Email Notifications: Automated email alerts for enrollment, course progress, and
 **Database:** MongoDb
 
 
-## Getting Started 🎯
+![Screenshot (6)](https://github.com/user-attachments/assets/6b4e276b-66dc-4591-ac9f-87498f878ebe)
 
 
-git clone 
 
-cd client
-Install packages from the root directory
-npm install
-# or
-yarn install
-Then, run the development server:
+## Run Locally
 
-npm run dev
-# or
-yarn dev
-Open http://localhost:5174 with your browser to see the result.
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
+  cd client
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
