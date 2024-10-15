@@ -5,6 +5,7 @@ This project is a full-featured Learning Management System (LMS) developed using
 
 
 ## Demo
+![Screenshot (6)](https://github.com/user-attachments/assets/6b4e276b-66dc-4591-ac9f-87498f878ebe)
 
 ### https://lmsclinet.vercel.app/
 
