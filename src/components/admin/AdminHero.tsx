@@ -85,7 +85,7 @@ const DashboardHeroComponent = () => {
             </div>
             <div className="">
               <CircularProgress variant="determinate" value={orders} />
-              <p>$ {orders}</p>
+              <p>$ {(orders || 0).toFixed(2)}</p>
             </div>
           </div>
         </div>
