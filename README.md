@@ -56,9 +56,6 @@ Email Notifications: Automated email alerts for enrollment, course progress, and
 **Database:** MongoDb
 
 
-![Screenshot (6)](https://github.com/user-attachments/assets/6b4e276b-66dc-4591-ac9f-87498f878ebe)
-
-
 
 ## Run Locally
 

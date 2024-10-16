@@ -10,7 +10,7 @@ import { useGetAllUserQuery } from "../../../redux/feature/user/userApi";
 import { useCrateOrderMutation } from "../../../redux/feature/order/orderApi";
 import { useAppSelector } from "../../../redux/hook";
 import { RootState } from "../../../redux/store";
-import toast, { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 type Props = {
   course: any;
@@ -18,7 +18,7 @@ type Props = {
 
 const PaymentForm = ({ course }: Props) => {
   const user = useAppSelector((state: RootState) => state.auth.user);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
   const { refetch } = useGetAllUserQuery(undefined);
@@ -26,7 +26,7 @@ const PaymentForm = ({ course }: Props) => {
   const [crateOrder, { data: orderData, error }] = useCrateOrderMutation();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: any) => { 
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (!stripe || !elements) {
       return;
@@ -36,19 +36,23 @@ const PaymentForm = ({ course }: Props) => {
       elements,
       redirect: "if_required",
     });
-      console.log(paymentIntent)
+    console.log(paymentIntent)
     if (error) {
       setMessage(error.message);
       setIsLoading(false);
     } else if (paymentIntent && paymentIntent.status === "succeeded" && user) {
       setIsLoading(false);
-      toast.success("Course Purchased successful")
-      navigate('/my-class')
-      crateOrder({
+
+      const result = await crateOrder({
         courseId: course.data._id,
         paymentInfo: paymentIntent,
       });
-      refetch();
+      console.log(result)
+      if (result?.data?.success) {
+        toast.success("Course Purchased successful");
+        navigate("/my-class");
+        refetch();
+      }
     }
     setIsLoading(false);
   };
@@ -60,10 +64,10 @@ const PaymentForm = ({ course }: Props) => {
       }
     }
   }, [orderData, error]);
-  
+
   return (
     <div className="text-black">
-      <Toaster/>
+      <Toaster />
       <form id="payment-form" onSubmit={handleSubmit}>
         <LinkAuthenticationElement id="link-authentication-element" />
         <PaymentElement id="payment-element" />

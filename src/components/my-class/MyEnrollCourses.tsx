@@ -11,7 +11,6 @@ type Props = {
 };
 
 const MyEnrollCourses = ({ enrollCourses }: Props) => {
-  console.log(enrollCourses)
   const navigate = useNavigate();
   const wName = "<Coding/> Hero";
   const [postReview] = usePostReviewMutation();
@@ -51,12 +50,12 @@ const MyEnrollCourses = ({ enrollCourses }: Props) => {
           enrollCourses.map((course: any, i: number) => (
             <div
               key={i}
-              className="bg-[#110630] p-3 rounded border border-blue-600 flex gap-4"
+              className="courserCard p-3 rounded border border-blue-600 flex gap-4"
             >
               <div>
                 <img
                   src={course.thumbnail}
-                  className="w-[150px] lg:w-[250px] h-[100px] object-cover"
+                  className="w-[150px] rounded-md lg:w-[250px] h-[100px] object-cover"
                   alt="Course Thumbnail"
                 />
               </div>

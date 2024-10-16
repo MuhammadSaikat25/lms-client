@@ -13,11 +13,11 @@ const CourseCard = ({ allCourse }: Props) => {
           <Link
             to={`/course-details/${course._id}`}
             key={i}
-            className="text-white border rounded-md bg-[#3A00AA] border-[#29017E] w-[250px]"
+            className="text-white border rounded-md courserCard w-[250px]"
           >
             <img
               src={course.thumbnail}
-              className="w-full h-[150px] object-contain"
+              className="w-full h-[150px] object-cover"
               alt=""
             />
             <div className="p-2">
@@ -27,7 +27,6 @@ const CourseCard = ({ allCourse }: Props) => {
                   : course.name}
                 {course.name.length > 20 && "..."}
               </h1>
-
               <section className="flex items-center gap-2">
                 <Rating
                   name="half-rating-read"

@@ -13,6 +13,7 @@ import ani from "../../assets/newA.json";
 import Impact from "../../components/home/Impact/Impact";
 import FaqImage from "../../components/home/Faq/FaqImage";
 import Text from "../../components/home/test/Text";
+import Line from "../../components/home/popular-course/Line";
 const Home = () => {
   const [scroll, setScroll] = useState(0);
 
@@ -36,7 +37,7 @@ const Home = () => {
         </div>
         <div className="absolute bottom-40 right-0">
           <Lottie
-            color="" // Change to the desired color
+            color=""
             animationData={ani}
             className="hidden md:block text-yellow-400"
             loop={true}
@@ -85,8 +86,8 @@ const Home = () => {
           Our most popular course_
         </h1>
         <PopularCourse />
+        <Line />
       </div>
-
       <div className="company">
         <Company />
       </div>
@@ -95,8 +96,8 @@ const Home = () => {
           scroll > 3125 && "sm:bg-[#00001F]"
         } ${
           scroll > 5207
-            ? " lg:bg-[#604CC3] transition-colors duration-700"
-            : " lg:bg-[#00001F] transition-colors duration-700"
+            ? "bg-[#00001F] lg:bg-[#604CC3] transition-colors duration-700"
+            : "bg-[#00001F] lg:bg-[#00001F] transition-colors duration-700"
         } `}
       >
         <Team />

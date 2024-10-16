@@ -89,7 +89,9 @@ body {
 .grad2 {
   background: linear-gradient(to bottom, #0e0631, #03010b);
 }
-
+.courserCard{
+  background: linear-gradient(225deg, rgba(106, 0, 255, .2) 19.3%, rgba(178, 255, 0, .2) 84.53%);
+}
 .faqImg {
   background-image: url(./assets/bottom-layer.webp);
 }

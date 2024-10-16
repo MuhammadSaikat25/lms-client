@@ -46,6 +46,11 @@ const courseApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    purchaseCourse: builder.query({
+      query: () => ({
+        url: `/my-purchaseCourse`,
+      }),
+    }),
   }),
 });
 export const {
@@ -54,4 +59,5 @@ export const {
   useUpdateCourseMutation,
   useGetAllCourseForStudentQuery,
   useGetSingleCourseQuery,
+  usePurchaseCourseQuery
 } = courseApi;
