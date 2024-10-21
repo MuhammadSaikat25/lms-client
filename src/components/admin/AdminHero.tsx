@@ -31,12 +31,13 @@ const DashboardHeroComponent = () => {
       0
     );
     setCourses(course);
-    const order = allOrders?.data?.reduce(
-      (pre: any, curr: any) => pre + curr.courseId.price,
-      0
-    );
-    setOrders(order);
+    const order = allOrders?.data?.reduce((pre: any, curr: any) => {
+      const price = curr.courseId?.price ?? 0;
+      return pre + price;
+    }, 0);
 
+    setOrders(order);
+    console.log(allOrders?.data);
     if (user > 20) {
       setUsers(user);
     } else {
@@ -48,7 +49,7 @@ const DashboardHeroComponent = () => {
     <div className="w-full h-screen lg:flex overflow-hidden text-white pt-12 lg:pt-0">
       <div className="w-full h-[35%]  lg:h-[60%]">
         <CourseAnalyticsUI adminHero={true} />
-        <OrderAnalyticsUi adminHero={true}/>
+        <OrderAnalyticsUi adminHero={true} />
       </div>
       <div className="relative z-10 mt-[100px] mx-auto w-fit md:pt-6 lg:mt-0 lg:pt-20 lg:pr-10 pt-3">
         {/* user info */}

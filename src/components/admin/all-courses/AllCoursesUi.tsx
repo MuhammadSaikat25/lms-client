@@ -9,19 +9,31 @@ import Paper from "@mui/material/Paper";
 import { MdDeleteForever, MdModeEditOutline } from "react-icons/md";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
-import { useGetAllCourseQuery } from "../../../redux/feature/course/courseApi";
+import {
+  useDeleteCourseMutation,
+  useGetAllCourseQuery,
+} from "../../../redux/feature/course/courseApi";
 import { FadeLoader } from "react-spinners";
+import { toast, Toaster } from "react-hot-toast";
 
 const AllCoursesUi = () => {
-  const { data } = useGetAllCourseQuery(undefined);
+  const { data, refetch } = useGetAllCourseQuery(undefined);
   const [courses, setCourses] = React.useState([]);
-
+  const [deleteCourse, { data: DeleteData }] = useDeleteCourseMutation();
   React.useEffect(() => {
     setCourses(data?.data);
   }, [data?.data]);
-
+  const handelDeleteCourse = async (id: string) => {
+    const res = await deleteCourse(id);
+    if (res?.data?.success) {
+      refetch();
+      toast("Course Delete successful");
+    }
+  };
+  console.log(DeleteData);
   return (
     <div className="w-full h-screen p-2">
+      <Toaster />
       {courses?.length > 0 ? (
         <div className="w-[100%] lg:w-[90%] mx-auto pt-14 lg:pt-0 h-[100%]">
           <TableContainer
@@ -95,7 +107,10 @@ const AllCoursesUi = () => {
                       </Link>
                     </TableCell>
                     <TableCell sx={{ color: "white" }} align="right">
-                      <MdDeleteForever />
+                      <MdDeleteForever
+                        className="cursor-pointer"
+                        onClick={() => handelDeleteCourse(course._id)}
+                      />
                     </TableCell>
                   </TableRow>
                 ))}

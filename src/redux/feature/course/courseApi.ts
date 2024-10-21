@@ -51,6 +51,15 @@ const courseApi = baseApi.injectEndpoints({
         url: `/my-purchaseCourse`,
       }),
     }),
+    deleteCourse: builder.mutation({
+      query: (id) => {
+        console.log(id)
+        return {
+          url: `/delete-course/${id}`,
+          method: "DELETE",
+        };
+      },
+    }),
   }),
 });
 export const {
@@ -59,5 +68,6 @@ export const {
   useUpdateCourseMutation,
   useGetAllCourseForStudentQuery,
   useGetSingleCourseQuery,
-  usePurchaseCourseQuery
+  usePurchaseCourseQuery,
+  useDeleteCourseMutation
 } = courseApi;

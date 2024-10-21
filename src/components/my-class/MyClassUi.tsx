@@ -19,7 +19,7 @@ const MyClassUi = () => {
   useEffect(() => {
     setEnrollCourses(purchaseCourse?.data?.courses || []);
   }, [purchaseCourse]);
-
+  console.log(purchaseCourse)
   return (
     <div className="lg:w-[70%] mx-auto mb-3 p-2">
       <h1 className="text-gray-300 py-4">
